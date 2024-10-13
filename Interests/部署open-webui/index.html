@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>部署Open WebUI - Janki&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Janki&#039;s Blog"><meta name="msapplication-TileImage" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Janki&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="如何在服务器或本地机器上设置和启动 Open WebUI"><meta property="og:type" content="blog"><meta property="og:title" content="部署Open WebUI"><meta property="og:url" content="https://blog.jankiny.live/Interests/%E9%83%A8%E7%BD%B2open-webui/"><meta property="og:site_name" content="Janki&#039;s Blog"><meta property="og:description" content="如何在服务器或本地机器上设置和启动 Open WebUI"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><meta property="article:published_time" content="2024-08-27T09:23:00.000Z"><meta property="article:modified_time" content="2024-09-04T02:58:05.962Z"><meta property="article:author" content="Janki"><meta property="article:tag" content="服务"><meta property="article:tag" content="docker"><meta property="article:tag" content="AI"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jankiny.live/Interests/%E9%83%A8%E7%BD%B2open-webui/"},"headline":"部署Open WebUI","image":["https://blog.jankiny.live/img/og_image.png"],"datePublished":"2024-08-27T09:23:00.000Z","dateModified":"2024-09-04T02:58:05.962Z","author":{"@type":"Person","name":"Janki"},"publisher":{"@type":"Organization","name":"Janki's Blog","logo":{"@type":"ImageObject","url":"https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"}},"description":"如何在服务器或本地机器上设置和启动 Open WebUI"}</script><link rel="canonical" href="https://blog.jankiny.live/Interests/%E9%83%A8%E7%BD%B2open-webui/"><link rel="alternate" href="/atom.xml" title="Janki&#039;s Blog" type="application/atom+xml"><link rel="icon" href="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?1c50c25906bc6a7f7aa6ce6eca1137ce";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><meta name="msvalidate.01" content="AB525823A0CA2DE82C6A7405BE45A1CE"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-GJ61XKWF4E" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-GJ61XKWF4E');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-08-27T09:23:00.000Z" title="8/27/2024, 9:23:00 AM">2024-08-27</time>发表</span><span class="level-item"><time dateTime="2024-09-04T02:58:05.962Z" title="9/4/2024, 2:58:05 AM">2024-09-04</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Interests/">玩味篇</a></span><span class="level-item">3 分钟读完 (大约439个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">部署Open WebUI</h1><div class="content"><p>如何在服务器或本地机器上设置和启动 Open WebUI</p>
+<span id="more"></span>
+
+<p><strong>AI导读：</strong>本文介绍了如何在服务器或本地机器上设置和启动 Open WebUI 的 Docker Compose 环境。首先，需要创建一个目录来存放 Docker Compose 文件及相关配置，并在该目录下创建名为 docker-compose.yml 的文件。同时，需在 openwebui 目录下建立 data 目录以存放模型和配置文件。启动服务后，可以通过浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:7860/">http://localhost:7860</a> 进行使用。此外，文章还提到了一种解决不同 API Endpoint 存在同名模型问题的方法，通过配置 Pipeline 来管理这些问题，建议用户参考相关文档获取更多信息。</p>
+<h2 id="创建项目目录"><a href="#创建项目目录" class="headerlink" title="创建项目目录"></a>创建项目目录</h2><p>首先，在您的服务器或本地机器上创建一个目录来存放 Docker Compose 文件和相关配置。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> openwebui</span><br><span class="line"><span class="built_in">cd</span> openwebui</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="创建-Docker-Compose-文件"><a href="#创建-Docker-Compose-文件" class="headerlink" title="创建 Docker Compose 文件"></a>创建 Docker Compose 文件</h2><p>在该目录下，创建一个名为 <code>docker-compose.yml</code> 的文件，内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">open-webui:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ghcr.io/open-webui/open-webui:main</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">open-webui</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;34860:8080&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line"><span class="comment">#      - /root/openwebui/data:/app/backend/data</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">open-webui:/app/backend/data</span></span><br><span class="line">    <span class="attr">environment:</span></span><br><span class="line">       <span class="bullet">-</span> <span class="string">ENABLE_OLLAMA_API=false</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">unless-stopped</span></span><br><span class="line">    <span class="attr">extra_hosts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;host.docker.internal:host-gateway&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">open-webui:</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="配置目录结构"><a href="#配置目录结构" class="headerlink" title="配置目录结构"></a>配置目录结构</h2><p>在 <code>openwebui</code> 目录下创建 <code>data</code> 目录，用于存放模型和配置文件。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p data/models</span><br><span class="line"><span class="built_in">mkdir</span> -p data/config</span><br></pre></td></tr></table></figure>
+
+<h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><p>在 <code>openwebui</code> 目录下运行以下命令启动服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="访问-OpenWebUI"><a href="#访问-OpenWebUI" class="headerlink" title="访问 OpenWebUI"></a>访问 OpenWebUI</h2><p>启动服务后，您可以通过浏览器访问 <code>http://localhost:7860</code>，或者使用服务器的IP地址来访问。</p>
+<h2 id="管理容器"><a href="#管理容器" class="headerlink" title="管理容器"></a>管理容器</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看日志</span></span><br><span class="line">docker-compose logs -f</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止服务</span></span><br><span class="line">docker-compose down</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重启服务</span></span><br><span class="line">docker-compose restart</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 OpenWebUI</span></span><br><span class="line">docker-compose pull</span><br><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<h2 id="（可选）配置Pipeline"><a href="#（可选）配置Pipeline" class="headerlink" title="（可选）配置Pipeline"></a>（可选）配置Pipeline</h2><blockquote>
+<p>本文配置Pipeline主要是为了解决“不同api Endpoint存在同名模型 ”的问题，目前（2024年8月30日）的一种解决方法是<a target="_blank" rel="noopener" href="https://github.com/open-webui/open-webui/issues/2863#issuecomment-2153410571">将不同的Endpoints放入多种管道</a>。</p>
+</blockquote>
+<p>进一步创建<code>pipelines</code>文件夹</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> pipelines</span><br><span class="line"><span class="built_in">cd</span> pipelines</span><br></pre></td></tr></table></figure>
+
+<p>在该目录下，创建一个名为 <code>docker-compose.yml</code> 的文件，内容如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">pipelines:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">ghcr.io/open-webui/pipelines:main</span></span><br><span class="line">    <span class="attr">container_name:</span> <span class="string">pipelines</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;34899:9099&quot;</span></span><br><span class="line">    <span class="attr">volumes:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">pipelines:/app/pipelines</span></span><br><span class="line">    <span class="attr">extra_hosts:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">&quot;host.docker.internal:host-gateway&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">volumes:</span></span><br><span class="line">  <span class="attr">pipelines:</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>参考文章：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.openwebui.com/getting-started/#quick-start-with-docker--recommended">🚀 Getting Started | Open WebUI</a></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>部署Open WebUI</p><p><a href="https://blog.jankiny.live/Interests/部署open-webui/">https://blog.jankiny.live/Interests/部署open-webui/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Janki</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-08-27</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-04</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/%E6%9C%8D%E5%8A%A1/">服务</a><a class="link-muted mr-2" rel="tag" href="/tags/docker/">docker</a><a class="link-muted mr-2" rel="tag" href="/tags/AI/">AI</a></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_button_wechat"></a><a class="a2a_button_douban"></a><a class="a2a_button_linkedin"></a><a class="a2a_button_pocket"></a><a class="a2a_button_mendeley"></a><a class="a2a_button_telegram"></a></div><script async src="https://static.addtoany.com/menu/page.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Tech/%E9%83%A8%E7%BD%B2overleaf%E7%A4%BE%E5%8C%BA%E7%89%88/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">部署overleaf社区版</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Interests/%E4%B8%AA%E4%BA%BA%E3%80%8A%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%8F%A3%E5%8D%8F%E8%AE%AE%E3%80%8B/"><span class="level-item">个人《服务端口协议》</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css"><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js"></script><script>new DisqusJS({
+            shortname: 'https-jankiny-github-io',
+            apikey: "dFxfGm5FVQWhJ3c7RWPy1jr8WCmHPYdtJw64NPlW0QBxlgHGEb3g1pIgNA4SS5aA",
+            siteName: "Janki's Blog",
+            identifier: "20240827-openwebui",
+            url: "https://blog.jankiny.live/Interests/%E9%83%A8%E7%BD%B2open-webui/",
+            title: "部署Open WebUI",
+            api: "https://disqus.skk.moe/disqus/",
+            admin: "Jankiny",
+            adminLabel: "Admin",
+            nesting: 4,
+        });</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex is-mobile" href="#创建项目目录"><span class="mr-2">1</span><span>创建项目目录</span></a></li><li><a class="is-flex is-mobile" href="#创建-Docker-Compose-文件"><span class="mr-2">2</span><span>创建 Docker Compose 文件</span></a></li><li><a class="is-flex is-mobile" href="#配置目录结构"><span class="mr-2">3</span><span>配置目录结构</span></a></li><li><a class="is-flex is-mobile" href="#启动服务"><span class="mr-2">4</span><span>启动服务</span></a></li><li><a class="is-flex is-mobile" href="#访问-OpenWebUI"><span class="mr-2">5</span><span>访问 OpenWebUI</span></a></li><li><a class="is-flex is-mobile" href="#管理容器"><span class="mr-2">6</span><span>管理容器</span></a></li><li><a class="is-flex is-mobile" href="#（可选）配置Pipeline"><span class="mr-2">7</span><span>（可选）配置Pipeline</span></a></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Janki</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2024</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny/hexo-theme-solon"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

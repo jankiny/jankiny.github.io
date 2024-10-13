@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>PostgreSQL - Janki&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Janki&#039;s Blog"><meta name="msapplication-TileImage" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Janki&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="注意：PostgreSQL安装、psql工具、PostgreSQL角色和数据库管理、启用远程访问PostgreSQL服务器（慎用）、PostgreSQL Shell命令 需要以root或有sudo权限的用户登录"><meta property="og:type" content="blog"><meta property="og:title" content="PostgreSQL"><meta property="og:url" content="https://blog.jankiny.live/Tech/postgresql/"><meta property="og:site_name" content="Janki&#039;s Blog"><meta property="og:description" content="注意：PostgreSQL安装、psql工具、PostgreSQL角色和数据库管理、启用远程访问PostgreSQL服务器（慎用）、PostgreSQL Shell命令 需要以root或有sudo权限的用户登录"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><meta property="article:published_time" content="2022-12-21T06:05:42.000Z"><meta property="article:modified_time" content="2024-09-03T12:37:07.984Z"><meta property="article:author" content="Janki"><meta property="article:tag" content="PostgreSQL"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jankiny.live/Tech/postgresql/"},"headline":"PostgreSQL","image":["https://blog.jankiny.live/img/og_image.png"],"datePublished":"2022-12-21T06:05:42.000Z","dateModified":"2024-09-03T12:37:07.984Z","author":{"@type":"Person","name":"Janki"},"publisher":{"@type":"Organization","name":"Janki's Blog","logo":{"@type":"ImageObject","url":"https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"}},"description":"注意：PostgreSQL安装、psql工具、PostgreSQL角色和数据库管理、启用远程访问PostgreSQL服务器（慎用）、PostgreSQL Shell命令 需要以root或有sudo权限的用户登录"}</script><link rel="canonical" href="https://blog.jankiny.live/Tech/postgresql/"><link rel="alternate" href="/atom.xml" title="Janki&#039;s Blog" type="application/atom+xml"><link rel="icon" href="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?1c50c25906bc6a7f7aa6ce6eca1137ce";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><meta name="msvalidate.01" content="AB525823A0CA2DE82C6A7405BE45A1CE"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-GJ61XKWF4E" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-GJ61XKWF4E');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2022-12-21T06:05:42.000Z" title="12/21/2022, 6:05:42 AM">2022-12-21</time>发表</span><span class="level-item"><time dateTime="2024-09-03T12:37:07.984Z" title="9/3/2024, 12:37:07 PM">2024-09-03</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Tech/">技艺集</a></span><span class="level-item">5 分钟读完 (大约824个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">PostgreSQL</h1><div class="content"><blockquote>
+<p>注意：<br>PostgreSQL安装、psql工具、PostgreSQL角色和数据库管理、启用远程访问PostgreSQL服务器（慎用）、PostgreSQL Shell命令</p>
+<p>需要以root或有sudo权限的用户登录</p>
+</blockquote>
+<span id="more"></span>
+
+<p><strong>AI导读：</strong>本文介绍了PostgreSQL的安装和管理，包括使用psql工具进行数据库操作、创建角色和数据库、以及启用远程访问的注意事项。在安装PostgreSQL后，用户需要以root或有sudo权限的身份登录，并可切换到postgres用户使用psql工具。文中详细说明了创建角色、数据库及授权的步骤，并警告关于远程访问时应谨慎设置防火墙和配置文件。附录部分列出了常用的PostgreSQL Shell命令，以帮助用户进行基本的数据库操作和管理。</p>
+<h2 id="Step1-安装PostgreSQL"><a href="#Step1-安装PostgreSQL" class="headerlink" title="Step1 安装PostgreSQL"></a>Step1 安装PostgreSQL</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install postgresql postgresql-contrib</span><br></pre></td></tr></table></figure>
+
+<p>状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart postgresql.service</span><br></pre></td></tr></table></figure>
+
+<p>打印版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres psql -c <span class="string">&quot;SELECT version();&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Step2-psql工具"><a href="#Step2-psql工具" class="headerlink" title="Step2 psql工具"></a>Step2 psql工具</h2><p>为了以<code>postgres</code>用户身份登录 PostgreSQL 服务器，首先切换用户，然后使用<code>psql</code>工具访问 PostgreSQL。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo su - postgres</span><br><span class="line">psql</span><br></pre></td></tr></table></figure>
+
+<p>退出 PostgreSQL Shell，输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\q</span><br></pre></td></tr></table></figure>
+
+<p>也可以不切换用户，而使用<code>sudo</code>命令访问 PostgreSQL：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres psql</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step3-PostgreSQL角色和数据库管理"><a href="#Step3-PostgreSQL角色和数据库管理" class="headerlink" title="Step3 PostgreSQL角色和数据库管理"></a>Step3 PostgreSQL角色和数据库管理</h2><blockquote>
+<p>具体见[附录1](## 附录1 PostgreSQL Shell命令)</p>
+</blockquote>
+<p>创建PostgreSQL角色</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - postgres -c <span class="string">&quot;createuser manpower&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>创建一个数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo su - postgres -c <span class="string">&quot;createdb manpowerdb&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>授权用户操作数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -u postgres psql <span class="comment"># 进入psql</span></span><br><span class="line">grant all privileges on database manpowerdb to manpower;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step4-启用远程访问PostgreSQL服务器（慎用）"><a href="#Step4-启用远程访问PostgreSQL服务器（慎用）" class="headerlink" title="Step4 启用远程访问PostgreSQL服务器（慎用）"></a>Step4 启用远程访问PostgreSQL服务器（慎用）</h2><p><u><strong>公网ip慎用，若使用请确保防火墙仅接受信任IP的连接</strong></u></p>
+<p>修改配置文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/postgresql/12/main/postgresql.conf</span><br></pre></td></tr></table></figure>
+
+<p>在<code>CONNECTIONS AND AUTHENTICATION</code>一节添加<code>listen_addresses = &#39;*&#39;</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># - Connection Settings -</span></span><br><span class="line"></span><br><span class="line">listen_addresses = <span class="string">&#x27;*&#x27;</span>     <span class="comment"># what IP address(es) to listen on;</span></span><br></pre></td></tr></table></figure>
+
+<p>保存文件并且重启 PostgreSQL 服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service postgresql restart</span><br></pre></td></tr></table></figure>
+
+<p>使用<code>ss</code>工具验证修改：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ss -nlt | grep 5432</span><br></pre></td></tr></table></figure>
+
+<p>在你的防火墙上打开端口<code>5432</code>端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw allow proto tcp from 192.168.1.0/24 to any port 5432</span><br></pre></td></tr></table></figure>
+
+<h2 id="附录1-PostgreSQL-Shell命令"><a href="#附录1-PostgreSQL-Shell命令" class="headerlink" title="附录1 PostgreSQL Shell命令"></a>附录1 PostgreSQL Shell命令</h2><h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><p>为postgres用户设置一个密码</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">\<span class="keyword">password</span> postgres</span><br></pre></td></tr></table></figure>
+
+<p>建数据库用户dbuser（刚才创建的是Linux系统用户），并设置密码</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">USER</span> dbuser <span class="keyword">WITH</span> <span class="keyword">PASSWORD</span> <span class="string">&#x27;password&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>创建用户数据库，这里为exampledb，并指定所有者为dbuser</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> exampledb <span class="keyword">OWNER</span> dbuser;</span><br></pre></td></tr></table></figure>
+
+<p>将exampledb数据库的所有权限都赋予dbuser，否则dbuser只能登录控制台，没有任何数据库操作权限</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">GRANT</span> <span class="keyword">ALL</span> <span class="keyword">PRIVILEGES</span> <span class="keyword">ON</span> <span class="keyword">DATABASE</span> exampledb <span class="keyword">to</span> dbuser;</span><br></pre></td></tr></table></figure>
+
+<h3 id="控制台命令"><a href="#控制台命令" class="headerlink" title="控制台命令"></a>控制台命令</h3><p>除了前面已经用到的\password命令（设置密码）和\q命令（退出）以外，控制台还提供一系列其他命令。</p>
+<ul>
+<li><p>\h：查看SQL命令的解释，比如\h select。</p>
+</li>
+<li><p>?：查看psql命令列表。</p>
+</li>
+<li><p>\l：列出所有数据库。</p>
+</li>
+<li><p>\c [database_name]：连接其他数据库。</p>
+</li>
+<li><p>\d：列出当前数据库的所有表格。</p>
+</li>
+<li><p>\d [table_name]：列出某一张表格的结构。</p>
+</li>
+<li><p>\du：列出所有用户。</p>
+</li>
+<li><p>\e：打开文本编辑器。</p>
+</li>
+<li><p>\conninfo：列出当前数据库和连接的信息。</p>
+</li>
+</ul>
+<h3 id="数据库操作"><a href="#数据库操作" class="headerlink" title="数据库操作"></a>数据库操作</h3><p>基本的数据库操作，就是使用一般的SQL语言</p>
+<figure class="highlight postgresql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># 创建新表</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> user_tbl(<span class="type">name</span> <span class="type">VARCHAR</span>(<span class="number">20</span>), signup_date <span class="type">DATE</span>);</span><br><span class="line"></span><br><span class="line"># 插入数据</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> user_tbl(<span class="type">name</span>, signup_date) <span class="keyword">VALUES</span>(<span class="string">&#x27;张三&#x27;</span>, <span class="string">&#x27;2013-12-22&#x27;</span>);</span><br><span class="line"></span><br><span class="line"># 选择记录</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> user_tbl;</span><br><span class="line"></span><br><span class="line"># 更新数据</span><br><span class="line"><span class="keyword">UPDATE</span> user_tbl <span class="keyword">set</span> <span class="type">name</span> = <span class="string">&#x27;李四&#x27;</span> <span class="keyword">WHERE</span> <span class="type">name</span> = <span class="string">&#x27;张三&#x27;</span>;</span><br><span class="line"></span><br><span class="line"># 删除记录</span><br><span class="line"><span class="keyword">DELETE</span> <span class="keyword">FROM</span> user_tbl <span class="keyword">WHERE</span> <span class="type">name</span> = <span class="string">&#x27;李四&#x27;</span> ;</span><br><span class="line"></span><br><span class="line"># 添加栏位</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> user_tbl <span class="keyword">ADD</span> email <span class="type">VARCHAR</span>(<span class="number">40</span>);</span><br><span class="line"></span><br><span class="line"># 更新结构</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> user_tbl <span class="keyword">ALTER</span> <span class="keyword">COLUMN</span> signup_date <span class="keyword">SET</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>;</span><br><span class="line"></span><br><span class="line"># 更名栏位</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> user_tbl <span class="keyword">RENAME</span> <span class="keyword">COLUMN</span> signup_date <span class="keyword">TO</span> signup;</span><br><span class="line"></span><br><span class="line"># 删除栏位</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> user_tbl <span class="keyword">DROP</span> <span class="keyword">COLUMN</span> email;</span><br><span class="line"></span><br><span class="line"># 表格更名</span><br><span class="line"><span class="keyword">ALTER</span> <span class="keyword">TABLE</span> user_tbl <span class="keyword">RENAME</span> <span class="keyword">TO</span> backup_tbl;</span><br><span class="line"></span><br><span class="line"># 删除表格</span><br><span class="line"><span class="keyword">DROP</span> <span class="keyword">TABLE</span> <span class="keyword">IF</span> <span class="keyword">EXISTS</span> backup_tbl;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>参考文章：<br><a href="">参考链接</a></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>PostgreSQL</p><p><a href="https://blog.jankiny.live/Tech/postgresql/">https://blog.jankiny.live/Tech/postgresql/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Janki</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2022-12-21</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-03</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/PostgreSQL/">PostgreSQL</a></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_button_wechat"></a><a class="a2a_button_douban"></a><a class="a2a_button_linkedin"></a><a class="a2a_button_pocket"></a><a class="a2a_button_mendeley"></a><a class="a2a_button_telegram"></a></div><script async src="https://static.addtoany.com/menu/page.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Tech/nvm%EF%BC%9Anode-js%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">nvm：Node.js版本管理工具</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Tech/linux%E7%B3%BB%E7%BB%9F%E6%8C%82%E8%BD%BDntfs%E7%A1%AC%E7%9B%98/"><span class="level-item">Linux系统挂载NTFS硬盘</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css"><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js"></script><script>new DisqusJS({
+            shortname: 'https-jankiny-github-io',
+            apikey: "dFxfGm5FVQWhJ3c7RWPy1jr8WCmHPYdtJw64NPlW0QBxlgHGEb3g1pIgNA4SS5aA",
+            siteName: "Janki's Blog",
+            identifier: "20221221-postgresql",
+            url: "https://blog.jankiny.live/Tech/postgresql/",
+            title: "PostgreSQL",
+            api: "https://disqus.skk.moe/disqus/",
+            admin: "Jankiny",
+            adminLabel: "Admin",
+            nesting: 4,
+        });</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex is-mobile" href="#Step1-安装PostgreSQL"><span class="mr-2">1</span><span>Step1 安装PostgreSQL</span></a></li><li><a class="is-flex is-mobile" href="#Step2-psql工具"><span class="mr-2">2</span><span>Step2 psql工具</span></a></li><li><a class="is-flex is-mobile" href="#Step3-PostgreSQL角色和数据库管理"><span class="mr-2">3</span><span>Step3 PostgreSQL角色和数据库管理</span></a></li><li><a class="is-flex is-mobile" href="#Step4-启用远程访问PostgreSQL服务器（慎用）"><span class="mr-2">4</span><span>Step4 启用远程访问PostgreSQL服务器（慎用）</span></a></li><li><a class="is-flex is-mobile" href="#附录1-PostgreSQL-Shell命令"><span class="mr-2">5</span><span>附录1 PostgreSQL Shell命令</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#基本使用"><span class="mr-2">5.1</span><span>基本使用</span></a></li><li><a class="is-flex is-mobile" href="#控制台命令"><span class="mr-2">5.2</span><span>控制台命令</span></a></li><li><a class="is-flex is-mobile" href="#数据库操作"><span class="mr-2">5.3</span><span>数据库操作</span></a></li></ul></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Janki</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2024</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny/hexo-theme-solon"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

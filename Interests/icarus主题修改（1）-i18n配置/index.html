@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Icarus主题修改（1） - i18n配置 - Janki&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Janki&#039;s Blog"><meta name="msapplication-TileImage" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Janki&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="为Blog的主题布局增加i18n功能。"><meta property="og:type" content="blog"><meta property="og:title" content="Icarus主题修改（1） - i18n配置"><meta property="og:url" content="https://blog.jankiny.live/Interests/icarus%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%EF%BC%881%EF%BC%89-i18n%E9%85%8D%E7%BD%AE/"><meta property="og:site_name" content="Janki&#039;s Blog"><meta property="og:description" content="为Blog的主题布局增加i18n功能。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><meta property="article:published_time" content="2024-02-27T13:24:25.000Z"><meta property="article:modified_time" content="2024-10-12T12:43:29.147Z"><meta property="article:author" content="Janki"><meta property="article:tag" content="Hexo"><meta property="article:tag" content="i18n"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jankiny.live/Interests/icarus%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%EF%BC%881%EF%BC%89-i18n%E9%85%8D%E7%BD%AE/"},"headline":"Icarus主题修改（1） - i18n配置","image":["https://fastly.jsdelivr.net/gh/jankiny/img-bucket@picgo-core/img/image-20240229125201539.png","https://fastly.jsdelivr.net/gh/jankiny/img-bucket@picgo-core/img/image-20240229132936133.png","https://fastly.jsdelivr.net/gh/jankiny/img-bucket@picgo-core/img/image-20240229133032221.png","https://fastly.jsdelivr.net/gh/jankiny/img-bucket@picgo-core/img/image-20240229134059683.png"],"datePublished":"2024-02-27T13:24:25.000Z","dateModified":"2024-10-12T12:43:29.147Z","author":{"@type":"Person","name":"Janki"},"publisher":{"@type":"Organization","name":"Janki's Blog","logo":{"@type":"ImageObject","url":"https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"}},"description":"为Blog的主题布局增加i18n功能。"}</script><link rel="canonical" href="https://blog.jankiny.live/Interests/icarus%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%EF%BC%881%EF%BC%89-i18n%E9%85%8D%E7%BD%AE/"><link rel="alternate" href="/atom.xml" title="Janki&#039;s Blog" type="application/atom+xml"><link rel="icon" href="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?1c50c25906bc6a7f7aa6ce6eca1137ce";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><meta name="msvalidate.01" content="AB525823A0CA2DE82C6A7405BE45A1CE"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-GJ61XKWF4E" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-GJ61XKWF4E');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-02-27T13:24:25.000Z" title="2/27/2024, 1:24:25 PM">2024-02-27</time>发表</span><span class="level-item"><time dateTime="2024-10-12T12:43:29.147Z" title="10/12/2024, 12:43:29 PM">2024-10-12</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Interests/">玩味篇</a></span><span class="level-item">6 分钟读完 (大约945个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Icarus主题修改（1） - i18n配置</h1><div class="content"><blockquote>
+<p>为Blog的主题布局增加i18n功能。</p>
+</blockquote>
+<span id="more"></span>
+
+<p><strong>AI导读：</strong>本文讨论了为Icarus主题博客增加国际化（i18n）功能的必要性和实现方法。尽管Icarus主题已支持一定程度的多语言配置，但存在只能为“布局”指定一种语言的问题。为了让博客的主要部分具备多语言支持，作者提出对导航栏和分类标签进行改进。具体地，通过修改navbar.jsx文件，利用Hexo内置函数获取翻译后的字符串，从而实现不同语言页面显示相应语言的导航。同时，分类和标签也可以选择使用翻译字符或单独建立对应语言的分类方案。这一系列改进旨在提升用户体验，使博客内容在多语言环境下更加友好。</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>Icarus主题包含部分i18n的配置：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://ppoffice.github.io/hexo-theme-icarus/uncategorized/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题 - Icarus</a> 如何更改我的站点的语言？</p>
+<p>打开站点根目录下的站点配置文件<code>_config.yml</code>，修改如下设置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">_config.yml</span><br><span class="line"></span><br><span class="line">- language: en</span><br><span class="line">+ language: &lt;语言名&gt;</span><br></pre></td></tr></table></figure>
+
+<p>你可以在<code>&lt;icarus_directory&gt;/languages</code>目录下找到所有可用的翻译。 <code>&lt;语言名&gt;</code>为不带后缀名的翻译文件名。</p>
+</blockquote>
+<p>Icarus提供的i18n存在一个问题，只能为博客的“布局”指定一个语言。</p>
+<p>例如下图Icarus提供的预览网站的主语言是英文，虽然当前页面的语言是中文，但红色框出的主题布局页面只能是配置的语言。</p>
+<p>本文的目的是让整个blog的必要部分都支持多语言。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/jankiny/img-bucket@picgo-core/img/image-20240229125201539.png" alt="Overview of English Navbar"></p>
+<h2 id="为Navbar增加i18n"><a href="#为Navbar增加i18n" class="headerlink" title="为Navbar增加i18n"></a>为Navbar增加<code>i18n</code></h2><p>最终修改的代码可以在github提交的commit中查看：<a target="_blank" rel="noopener" href="https://github.com/jankiny/hexo-theme-solon/commit/b6a11c888eed17b2e30c9af4731a1a1e84b7f052">add i18n for navbar · jankiny&#x2F;hexo-theme-solon@b6a11c8 (github.com)</a>。</p>
+<p><strong>Icarus的Navbar是如何渲染的呢？</strong> 原先的Icarus将<code>_config.xxx.yml</code>中menu的内容直接渲染出来。如果网站只有一个语言，例如中文，那么可以直接在这部分使用中文配置即可，例如<a target="_blank" rel="noopener" href="https://github.com/removeif/hexo-theme-amazing?tab=readme-ov-file#%E5%BC%80%E5%A7%8B%E9%83%A8%E5%88%86%E9%85%8D%E7%BD%AE">hexo-theme-amazing</a>提供的食用说明：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">navbar:</span></span><br><span class="line">    <span class="comment"># Naviagtion menu items</span></span><br><span class="line">    <span class="attr">menu:</span></span><br><span class="line">        <span class="string">首页:</span> <span class="string">/</span></span><br><span class="line">        <span class="string">归档:</span> <span class="string">/archives</span></span><br><span class="line">        <span class="string">分类:</span> <span class="string">/categories</span></span><br><span class="line">        <span class="string">标签:</span> <span class="string">/tags</span></span><br><span class="line">        <span class="string">影音:</span> <span class="string">/media</span></span><br><span class="line">        <span class="string">相册:</span> <span class="string">/album</span></span><br><span class="line">        <span class="string">友链:</span> <span class="string">/friend</span></span><br><span class="line">        <span class="string">碎碎念:</span> <span class="string">/self-talking</span></span><br><span class="line">        <span class="string">留言:</span> <span class="string">/message</span></span><br><span class="line">        <span class="string">关于:</span> <span class="string">/about</span></span><br></pre></td></tr></table></figure>
+
+<p>我们希望这部分能使用英文单词配置，但在渲染时根据博文的设定显示对应的语言。</p>
+<p>我们需要将“直接渲染”修改为“取得翻译后的字符串”，这是通过<a href="(https://hexo.io/zh-cn/docs/internationalization)">hexo内置的函数</a>实现的。</p>
+<p>具体而言，我们修改主题下的<code>layout/common/navbar.jsx</code>文件。处理后的<code>name</code>就是配置中的navbar内容，原来是将其直接作为key来渲染页面的，现在我们通过<code>_p</code>函数去<code>language\</code>文件夹中取得翻译后的字符作为key。</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// menu[name] = &#123; url, active &#125;;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// navbar i18n</span></span><br><span class="line">menu[<span class="title function_">_p</span>(<span class="string">&#x27;common.&#x27;</span> + name, <span class="title class_">Infinity</span>)] = &#123; url, active &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>例如我们的<code>_config.xxx.yml</code>是这样的：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">navbar:</span></span><br><span class="line">    <span class="comment"># Navigation menu items</span></span><br><span class="line">    <span class="attr">menu:</span></span><br><span class="line">        <span class="attr">home:</span> <span class="string">/</span></span><br><span class="line">        <span class="attr">archive:</span> <span class="string">/archives</span></span><br><span class="line">        <span class="attr">category:</span> <span class="string">/categories</span></span><br><span class="line">        <span class="attr">tag:</span> <span class="string">/tags</span></span><br><span class="line">        <span class="attr">music:</span> <span class="string">/music</span></span><br><span class="line">        <span class="attr">about:</span> <span class="string">/about</span></span><br></pre></td></tr></table></figure>
+
+<p>在不同语言的页面，navbar也会随之改变。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/jankiny/img-bucket@picgo-core/img/image-20240229132936133.png" alt="英文博文page"></p>
+<p><img src="https://fastly.jsdelivr.net/gh/jankiny/img-bucket@picgo-core/img/image-20240229133032221.png" alt="中文博文page"></p>
+<h2 id="为Category增加i18n"><a href="#为Category增加i18n" class="headerlink" title="为Category增加i18n"></a>为Category增加i18n</h2><p>分类（Categories）和标签（Tags）是管理博客的两个重要的工具。</p>
+<p>除了像Navbar一样为Category提供多语言的翻译字符，直接为一个语言建立一个Category或Tag也是可选的方案。</p>
+<p>例如Icarus的Tag选择的就是这个方案。在官方文档中，<a target="_blank" rel="noopener" href="https://ppoffice.github.io/hexo-theme-icarus/tags/Icarus-User-Guide/">Tag: Icarus User Guide</a>提供“英文的用户指南”，而<a target="_blank" rel="noopener" href="https://ppoffice.github.io/hexo-theme-icarus/tags/Icarus%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/">Tag: Icarus用户指南</a>提供“中文的用户指南”。</p>
+<p><img src="https://fastly.jsdelivr.net/gh/jankiny/img-bucket@picgo-core/img/image-20240229134059683.png" alt="Icarus标签"></p>
+<p>我们认为Tag工具具有扁平化的特性，但是</p>
+<p>参考文章：</p>
+<p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/internationalization">国际化（i18n） | Hexo</a></p>
+<p><a target="_blank" rel="noopener" href="https://ppoffice.github.io/hexo-theme-icarus/uncategorized/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">常见问题 - Icarus</a></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Icarus主题修改（1） - i18n配置</p><p><a href="https://blog.jankiny.live/Interests/icarus主题修改（1）-i18n配置/">https://blog.jankiny.live/Interests/icarus主题修改（1）-i18n配置/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Janki</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-02-27</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-10-12</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Hexo/">Hexo</a><a class="link-muted mr-2" rel="tag" href="/tags/i18n/">i18n</a></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_button_wechat"></a><a class="a2a_button_douban"></a><a class="a2a_button_linkedin"></a><a class="a2a_button_pocket"></a><a class="a2a_button_mendeley"></a><a class="a2a_button_telegram"></a></div><script async src="https://static.addtoany.com/menu/page.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Academics/20240229-paper-fctl1/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">20240229-paper-FCTL1</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Tech/nvm-windows%EF%BC%9A%E7%AE%A1%E7%90%86windowns%E4%B8%8B%E7%9A%84node-js%E7%89%88%E6%9C%AC/"><span class="level-item">nvm-windows：管理Windowns下的Node.js版本</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css"><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js"></script><script>new DisqusJS({
+            shortname: 'https-jankiny-github-io',
+            apikey: "dFxfGm5FVQWhJ3c7RWPy1jr8WCmHPYdtJw64NPlW0QBxlgHGEb3g1pIgNA4SS5aA",
+            siteName: "Janki's Blog",
+            identifier: "20240227-blog-theme1",
+            url: "https://blog.jankiny.live/Interests/icarus%E4%B8%BB%E9%A2%98%E4%BF%AE%E6%94%B9%EF%BC%881%EF%BC%89-i18n%E9%85%8D%E7%BD%AE/",
+            title: "Icarus主题修改（1） - i18n配置",
+            api: "https://disqus.skk.moe/disqus/",
+            admin: "Jankiny",
+            adminLabel: "Admin",
+            nesting: 4,
+        });</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex is-mobile" href="#前言"><span class="mr-2">1</span><span>前言</span></a></li><li><a class="is-flex is-mobile" href="#为Navbar增加i18n"><span class="mr-2">2</span><span>为Navbar增加i18n</span></a></li><li><a class="is-flex is-mobile" href="#为Category增加i18n"><span class="mr-2">3</span><span>为Category增加i18n</span></a></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Janki</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2024</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny/hexo-theme-solon"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

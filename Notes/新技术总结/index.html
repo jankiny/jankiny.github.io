@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>新技术总结 - Janki&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Janki&#039;s Blog"><meta name="msapplication-TileImage" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Janki&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="摘要"><meta property="og:type" content="blog"><meta property="og:title" content="新技术总结"><meta property="og:url" content="https://blog.jankiny.live/Notes/%E6%96%B0%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"><meta property="og:site_name" content="Janki&#039;s Blog"><meta property="og:description" content="摘要"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><meta property="article:published_time" content="2024-10-10T06:35:00.000Z"><meta property="article:modified_time" content="2024-10-13T04:51:46.073Z"><meta property="article:author" content="Janki"><meta property="article:tag" content="20241010-techbase"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jankiny.live/Notes/%E6%96%B0%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"},"headline":"新技术总结","image":["https://blog.jankiny.live/img/og_image.png"],"datePublished":"2024-10-10T06:35:00.000Z","dateModified":"2024-10-13T04:51:46.073Z","author":{"@type":"Person","name":"Janki"},"publisher":{"@type":"Organization","name":"Janki's Blog","logo":{"@type":"ImageObject","url":"https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"}},"description":"摘要"}</script><link rel="canonical" href="https://blog.jankiny.live/Notes/%E6%96%B0%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"><link rel="alternate" href="/atom.xml" title="Janki&#039;s Blog" type="application/atom+xml"><link rel="icon" href="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?1c50c25906bc6a7f7aa6ce6eca1137ce";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><meta name="msvalidate.01" content="AB525823A0CA2DE82C6A7405BE45A1CE"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-GJ61XKWF4E" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-GJ61XKWF4E');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-10-10T06:35:00.000Z" title="10/10/2024, 6:35:00 AM">2024-10-10</time>发表</span><span class="level-item"><time dateTime="2024-10-13T04:51:46.073Z" title="10/13/2024, 4:51:46 AM">2024-10-13</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Notes/">随手记</a></span><span class="level-item">34 分钟读完 (大约5031个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">新技术总结</h1><div class="content"><blockquote>
+<p>摘要</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="云计算"><a href="#云计算" class="headerlink" title="云计算"></a>云计算</h2><h3 id="云计算概念"><a href="#云计算概念" class="headerlink" title="云计算概念"></a>云计算概念</h3><p>概念：云计算指通过计算机网络形成的<strong>计算能力极强的系统</strong>，可<strong>存储集合相关资源并按需配置</strong>，向用户<strong>提供个性化服务</strong>。因此，云计算涵盖<strong>服务</strong>和<strong>平台</strong>两个方面。</p>
+<h4 id="计算方式发展的几个阶段"><a href="#计算方式发展的几个阶段" class="headerlink" title="计算方式发展的几个阶段"></a>计算方式发展的几个阶段</h4><ol>
+<li><strong>图灵计算到网络计算</strong>：摩尔定律（65年），吉尔德定律（90年代初），麦特卡尔弗定率（N-N^2，以太网发明人）</li>
+<li><strong>网络计算到云计算</strong>：并行计算（群集），网格计算</li>
+</ol>
+<h4 id="基本特征"><a href="#基本特征" class="headerlink" title="基本特征"></a>基本特征</h4><p><strong>虚拟化</strong>：将不同资源<strong>解耦并组成统一的资源池</strong>（CPU池、内存池），以逻辑可管理的形式提供用户使用。</p>
+<p><strong>服务化</strong>：信息资源可以同其他生产生活资源一样，采用服务的方式提供。</p>
+<p><strong>柔性化</strong>：资源可以按需分配。</p>
+<p><strong>个性化</strong>：用户可以自由地选择与配置自己的计算坏境。</p>
+<p><strong>社会化</strong>：计算资源形成大规模、高效能、社会分工明确的云服务中心。</p>
+<p>智能化</p>
+<h4 id="云计算的设计目标"><a href="#云计算的设计目标" class="headerlink" title="云计算的设计目标"></a>云计算的设计目标</h4><p>将计算从桌面移向数据中心、服务可配置和按需付费、性能可扩展、数据隐私保护、云服务标准化</p>
+<h4 id="云计算的系统架构（四层两域）"><a href="#云计算的系统架构（四层两域）" class="headerlink" title="云计算的系统架构（四层两域）"></a>云计算的系统架构（四层两域）</h4><p><strong>业务域</strong>：提供资源承载客户应用</p>
+<ul>
+<li><p><strong>基础设施层</strong>：硬件（存储设备、网络设备）和基础软件（操作系统、系统软件）</p>
+</li>
+<li><p><strong>虚拟池层</strong>：提供虚拟化资源池（计算、存储、网络）和云组件（云数据库、中间件）</p>
+</li>
+<li><p><strong>服务层</strong>：提供标准化的云服务（IaaS、PaaS、SaaS、DaaS）</p>
+</li>
+<li><p><strong>应用层</strong>：客户应用系统（工业、政务、金融）</p>
+</li>
+</ul>
+<p><strong>管理域</strong>：协调管理云数据中心</p>
+<h4 id="云服务的服务模型"><a href="#云服务的服务模型" class="headerlink" title="云服务的服务模型"></a>云服务的服务模型</h4><p><strong>基础设置即服务（IaaS）</strong>：通过虚拟化技术形成资源池，提供底层基础服务。包括存储、计算实例和通信，例如Amazon EC2虚拟机就是IaaS。</p>
+<p><strong>平台即服务（PaaS）</strong>：云平台提供运行环境持支，部署用户的应用程序。例如在微软Azure部署Web应用。</p>
+<p><strong>软件即服务（SaaS）</strong>：客户使用的特殊接口。例如谷歌的Gmail。</p>
+<p><strong>数据即服务（DaaS）</strong>：提供数据管理服务。<strong>需要包括的内容：数据采集、数据治理与标准化、数据聚合、数据服务</strong>。<strong>Hadoop时DaaS的主要技术之一</strong>。</p>
+<p>函数即服务（FaaS）、后端即服务（BaaS）</p>
+<h4 id="云的部署模型："><a href="#云的部署模型：" class="headerlink" title="云的部署模型："></a>云的部署模型：</h4><p>公有云、私有云、混合云</p>
+<h4 id="云计算设计的主要技术"><a href="#云计算设计的主要技术" class="headerlink" title="云计算设计的主要技术"></a>云计算设计的主要技术</h4><p>虚拟化：虚拟机、容器</p>
+<p>分布式：分布式计算、分布式存储</p>
+<p>云平台：</p>
+<p>服务计算（SOA），服务提供者，服务消费者，服务代理，角色</p>
+<p>边缘计算，“云-边-端”的形态</p>
+<h3 id="虚拟化技术"><a href="#虚拟化技术" class="headerlink" title="虚拟化技术"></a>虚拟化技术</h3><p>概念：虚拟化指屏蔽物理计算资源与上层软件之间的紧密耦合联系（<strong>解耦合</strong>），从而达到资源的动态配置。</p>
+<h4 id="虚拟化对象"><a href="#虚拟化对象" class="headerlink" title="虚拟化对象"></a>虚拟化对象</h4><p>计算虚拟化、存储虚拟化、网络虚拟化、桌面虚拟化</p>
+<h4 id="虚拟化实现的层次"><a href="#虚拟化实现的层次" class="headerlink" title="虚拟化实现的层次"></a>虚拟化实现的层次</h4><p>计算机系统结构的基本层次：底层硬件 —-”指令集“—&gt; 操作系统 —-”系统调用“—&gt; 程序集 —-”应用程序接口“—&gt; 应用程序</p>
+<p><strong>硬件层次（不同操作系统和应用独立）</strong>：虚拟机</p>
+<p><strong>指令集层次（当应用于硬件无关时）</strong>：指令虚拟机</p>
+<p><strong>操作系统层次（应用独立）</strong>：容器技术</p>
+<p><strong>库支持层次（跨操作系统运行应用）</strong>：WINE（实现 Windows API 调用的接口来实现虚拟化，使得Linux、macOS可以执行exe程序）</p>
+<p><strong>应用程序层次</strong>：高级语言虚拟机，例如JVM（Java虚拟机）和Node.js</p>
+<h4 id="硬件虚拟化"><a href="#硬件虚拟化" class="headerlink" title="硬件虚拟化"></a>硬件虚拟化</h4><p>硬件虚拟化在真实硬件和传统操作系统之间插入一层软件，称为<strong>虚拟机监视器（VMM）</strong>，负责管理硬件资源。</p>
+<p><strong>完全虚拟化</strong>：创建出于真实硬件完全相同的硬件环境。但二进制代码翻译时，需要在VMM中插入陷入指令，从而会产生性能开销，使虚拟机性能逊色于物理机。优点是不需要操作系统干预。</p>
+<p><strong>半虚拟化</strong>：需要VMM在操作系统的持支下将部分指令转为对VMM的超级调用，避免二进制代码动态翻译。优点是虚拟机效率接近物理机。</p>
+<h4 id="容器技术"><a href="#容器技术" class="headerlink" title="容器技术"></a>容器技术</h4><p>概念：容器技术有效的将单个操作系统的资源划分到孤立的组中，以便更好的在孤立的组之间平衡有冲突的资源使用需求。容器是轻量的<strong>操作系统级虚拟化</strong>。</p>
+<p><strong>Docker</strong>：</p>
+<ul>
+<li><strong>是一个开源的应用容器引擎</strong>；</li>
+<li>可以快速构建隔离的、标准化的运行环境或轻量的PaaS，构建自动化测试和持续集成环境；</li>
+<li><strong>镜像、容器、仓库</strong>是其三大核心组成部分</li>
+</ul>
+<p><strong>Kubernetes</strong>：</p>
+<ul>
+<li><strong>是Google开源的一个容器编排引擎</strong>；</li>
+<li>构建在Docker之上，管理跨机器运行的容器化应用。</li>
+</ul>
+<h3 id="分布式计算"><a href="#分布式计算" class="headerlink" title="分布式计算"></a>分布式计算</h3><p>概念：利用分布式系统解决计算问题就是分布式计算。</p>
+<h4 id="分布式系统"><a href="#分布式系统" class="headerlink" title="分布式系统"></a>分布式系统</h4><p>集中式系统：是指一个主机带多个终端的系统，整个系统的数据存储、控制与处理完全交由主机来完成；</p>
+<p><strong>分布式计算机系统</strong>：<strong>是指由多台分散的计算机，经网络的连接形成的系统，系统的处理和控制功能分布在各个计算机上</strong>。分布式系统的内部结构、通信方式和功能实现<strong>对用户透明</strong>。</p>
+<p>分布式系统<strong>主要特性</strong>：<strong>资源可访问、透明性、开放性、可扩展性</strong></p>
+<h4 id="分布式计算-1"><a href="#分布式计算-1" class="headerlink" title="分布式计算"></a>分布式计算</h4><p>分布式计算的灵魂是<strong>负载均衡</strong>和<strong>共享资源</strong>。</p>
+<p>优点：</p>
+<ol>
+<li>降低对机器性能的要求，从而降低了硬件成本；</li>
+<li>扩展性极佳；</li>
+<li>处理能力极强。</li>
+</ol>
+<h4 id="分布式系统的计算模型"><a href="#分布式系统的计算模型" class="headerlink" title="分布式系统的计算模型"></a>分布式系统的计算模型</h4><ol>
+<li><strong>面向对象模型OOM</strong>：基于C&#x2F;S模型，如CORBA，DCOM，JavaRMI</li>
+<li><strong>面向服务模式SOM</strong>：核心是服务，采用松散耦合灵活的体系结构适应业务的变化</li>
+<li><strong>公用计算模式UBM</strong>：提供公共的计算能力（如同公共事业，电力，供水）</li>
+<li><strong>志愿参与模式VJM</strong>：利用网上空闲计算能力</li>
+</ol>
+<h3 id="分布式存储"><a href="#分布式存储" class="headerlink" title="分布式存储"></a>分布式存储</h3><h4 id="存储技术发展阶段"><a href="#存储技术发展阶段" class="headerlink" title="存储技术发展阶段"></a>存储技术发展阶段</h4><ol>
+<li>存储和计算部署在一起</li>
+<li>存储和计算分离，又称网络存储系统</li>
+<li>分布式存储</li>
+</ol>
+<h4 id="分布式文件系统"><a href="#分布式文件系统" class="headerlink" title="分布式文件系统"></a>分布式文件系统</h4><p>概念：分布式文件系统是指文件系统管理的物理存储资源不一定直接连接在本地节点上，而是通过计算机网络与节点相连。</p>
+<p>分类：</p>
+<ol>
+<li><strong>网络文件系统</strong>：分布式C&#x2F;S文件系统，采用Remote Access Model的访问模式，<strong>非本地文件不会复制到本地</strong>。</li>
+<li><strong>Andrew系统</strong>：共享与获得在计算机网络中存放的文件。采用upload&#x2F;download model的形式，即<strong>文件无论读取还是修改，都会复制到本地</strong>。</li>
+<li><strong>KASS系统</strong>：基于Java的纯分布式文件系统。</li>
+<li><strong>Google的GFS系统</strong>：节点有三类角色：<strong>主服务器、块服务器和客户</strong>。主服务器逻辑上只有一个，保存系统所有元数据。块服务器负责存储工作，<strong>每个文件按64MB切块</strong>，每份数据在系统中<strong>保存3个以上的冗余备份</strong>。</li>
+<li><strong>HDFS系统</strong>：是目前应用最广的分布式文件系统之一。特点（1）元数据和数据分离；（2）文件被切分为64MB的数据块，均匀分布到多个数据节点上。（3）检测硬件故障并恢复所造成的丢失数据。</li>
+</ol>
+<h4 id="分布式数据库"><a href="#分布式数据库" class="headerlink" title="分布式数据库"></a>分布式数据库</h4><p>概念：分布式数据库使用计算机网络将物理机上的多个数据库节点连接起来组成的逻辑上统一的数据库管理系统。</p>
+<p>特点：</p>
+<ol>
+<li><strong>独立透明性</strong>：数据的逻辑分区，物理位置对用户透明；</li>
+<li><strong>集中和自治结合</strong>：局部DBMS可以独立地管理局部数据库，系统也有集中控制机制，协调各局部DBMS工作；</li>
+<li><strong>复制透明性</strong>：复制的数据对用户透明；</li>
+<li><strong>易于扩展性</strong>：可以增加服务器进一步分布数据。</li>
+</ol>
+<p>设计目标：适应性、可靠性可用性、充分性、扩展性</p>
+<p>体系结构：</p>
+<ol>
+<li><strong>全局外层</strong>：由多个用户视图组成，从一个虚拟的由各局部数据库逻辑集合中抽取；</li>
+<li><strong>全局概念层</strong>：是分布式数据的整体抽象，包含系统中全部数据的特性和逻辑结构，是对数据库的整体描述；</li>
+<li><strong>局部概念层：从数据模型角度看，集中式数据库与分布式数据库都有局部概念层部分</strong></li>
+<li><strong>局部内层</strong>：分布式数据库中关于物理数据库的描述。</li>
+</ol>
+<h4 id="分布式数据库的一致性问题"><a href="#分布式数据库的一致性问题" class="headerlink" title="分布式数据库的一致性问题"></a>分布式数据库的一致性问题</h4><p>数据库中的一致性概念（<strong>ACID理论</strong>）：原子性（Atomic）、一致性（Consistency）、隔离性（Isolation）、持久性（Durability）</p>
+<p>分布式系统中的数据一致性（<strong>CAP理论</strong>）：<strong>一致性（Consistency）、可用性（Availability）、分区容错性（Partition tolerance）</strong>。一个分布式系统，不可能同时满足<strong>一致性、可用性（矛盾，二选一）</strong>，但<strong>分区容错性</strong>必须满足。</p>
+<p><strong>BASE理论</strong>：<strong>基本可用（Basically Available）、软状态（Soft State）、最终一致性（Eventually Consistent）</strong>。BASE是ACID的反面强调基本可用性，如果需要高可用性，就要牺牲一致性和容错性。</p>
+<p><strong>HBASE分布式数据库</strong>：依托于Hadoop的HDFS作为底层的存储单元。基于列存储。</p>
+<p><strong>ZooKeeper</strong>：是一个分布式的、开放源码的分布式应用程序协调服务，为分布式应用提供一致性服务的软件。</p>
+<h2 id="物联网"><a href="#物联网" class="headerlink" title="物联网"></a>物联网</h2><h3 id="物联网的概念"><a href="#物联网的概念" class="headerlink" title="物联网的概念"></a>物联网的概念</h3><p>概念：物联网是一个基于互联网、传统电信网等信息承载体，让所有能够被独立寻址的普通物理对象实现互联互通的网络。它具有<strong>普通对象设备化，自治终端互联化和普通服务智能化</strong>3个重要特征。</p>
+<h4 id="物联网起源"><a href="#物联网起源" class="headerlink" title="物联网起源"></a>物联网起源</h4><ul>
+<li><strong>1999年，提出”万物皆可通过网络互联“，RFID技术为重点</strong></li>
+<li><strong>2005年</strong>，信息社会世界峰会 ITU发布《ITU互联网报告2005：物联网》，各国开始把物联网基础设施列为国家战略发展计划</li>
+<li><strong>2009年8月</strong>，<strong>温家宝”感知中国“</strong>把我国物联网领域研究和应用推向高潮，<strong>无锡市率先建立”感知中国“研究中心</strong></li>
+</ul>
+<h4 id="物联网的驱动力"><a href="#物联网的驱动力" class="headerlink" title="物联网的驱动力"></a>物联网的驱动力</h4><ul>
+<li>国家意志，振兴经济</li>
+<li>社会急需，减少资源浪费，人力浪费，提高安全，节约成本</li>
+<li>IT产业机遇，从计算机的连接，到人的连接，再到物的连接</li>
+</ul>
+<h4 id="物联网基础架构"><a href="#物联网基础架构" class="headerlink" title="物联网基础架构"></a>物联网基础架构</h4><ul>
+<li>应用层：应用层+应用支撑子层</li>
+<li>网络层（基础）：互联网</li>
+<li>感知层（重点）：感知采集（感知+识别），协同信息处理互通</li>
+</ul>
+<h3 id="传感技术"><a href="#传感技术" class="headerlink" title="传感技术"></a>传感技术</h3><h4 id="传感器技术"><a href="#传感器技术" class="headerlink" title="传感器技术"></a>传感器技术</h4><p>化学传感器、智能传感器</p>
+<p>传感器接口技术：</p>
+<ol>
+<li><strong>串行接口</strong>：串口，信息逐位按序传送。</li>
+<li><strong>SPI接口</strong>：串行外围接口（serial Peripheral Interface）是一种同步外设接口。</li>
+<li><strong>$I^2C$接口</strong>：用于IC控制的双向两线串行总线（inter-Intergrated Circuit）</li>
+</ol>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h4 id="标识与自动识别技术"><a href="#标识与自动识别技术" class="headerlink" title="标识与自动识别技术"></a>标识与自动识别技术</h4><p>识别技术：条形码、二维码、IC卡、射频技术（RFID）、光学字符识别技术（OCR）、语音识别技术、生物计量识别技术、遥感技术、机器人智能感知技术</p>
+<p><strong>RFID构成：电子标签，阅读器，天线</strong></p>
+<p>分类：有缘、无缘</p>
+<ul>
+<li>低频、高频、超高频、微波</li>
+<li>耦合方式：电感耦合、反向散射耦合</li>
+</ul>
+<p>标准：</p>
+<ul>
+<li><p><strong>ISO11784&#x2F;11785 动物识别（低频）</strong></p>
+</li>
+<li><p><strong>ISO1443&#x2F;15693 电子证件等（高频）</strong></p>
+</li>
+</ul>
+<p><strong>EPCglobal：全球统一编码体系、射频识别系统、信息网络系统</strong></p>
+<h3 id="自组织网络-传感网络"><a href="#自组织网络-传感网络" class="headerlink" title="自组织网络&#x2F;传感网络"></a>自组织网络&#x2F;传感网络</h3><h4 id="无线传感网"><a href="#无线传感网" class="headerlink" title="无线传感网"></a>无线传感网</h4><p>概念：无线传感网（Wireless Sensor Network, WSN），是由大量传感器以自组织和多跳方式构成的无线网络。传感器网络实现了数据的<strong>采集、处理和传输</strong>三种功能。</p>
+<p><strong>WSN三要素：传感器、感知对象、观察者</strong></p>
+<p><strong>传感器组成：敏感元件、转换元件、信号调节与转换电路</strong></p>
+<h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>各部分传感器写作地感知采集处理和传输网络覆盖地理区域</p>
+<h4 id="无线传感器网的体系结构"><a href="#无线传感器网的体系结构" class="headerlink" title="无线传感器网的体系结构"></a>无线传感器网的体系结构</h4><p>物理层、数据链路层、网络层、传输层、应用层</p>
+<h3 id="无线通信技术及相关协议"><a href="#无线通信技术及相关协议" class="headerlink" title="无线通信技术及相关协议"></a>无线通信技术及相关协议</h3><p>个域网（WPAN）：</p>
+<ul>
+<li>蓝牙（2.4G，调频，可传语音数据，主-从模式，微微网，802.15）</li>
+<li>ZigBee（2.4G，868M，915M三个频段，250k-10kbps，多跳连接，802.15.4，三种节点协调器，路由器，终端节点）</li>
+<li>UWB（超宽带，500M带宽或带宽与中心频率比大于25%，几百Mbps，802.15.3）</li>
+<li>红外、NFC</li>
+</ul>
+<p>无线局域网（WLAN）：802.11 WiFi</p>
+<p>无线城域网：802.16 WiMAX ，LoRA</p>
+<p>移动通信网（WAN）：2G&#x2F;3G 4G 5G&#x2F;NBIOT</p>
+<h2 id="大数据"><a href="#大数据" class="headerlink" title="大数据"></a>大数据</h2><p>考试内容：数据预处理、数据分析、数据模型、数据挖掘、可视化等</p>
+<h3 id="大数据概念"><a href="#大数据概念" class="headerlink" title="大数据概念"></a>大数据概念</h3><p>概念：无法在可容忍的时间用传统信息技术和软硬件工具对其进行获取，管理和处理的巨量数据集合，需要可伸缩的计算体系结构以支持其存储处理和分析</p>
+<h4 id="大数据的特征（4V-5V）"><a href="#大数据的特征（4V-5V）" class="headerlink" title="大数据的特征（4V&#x2F;5V）"></a>大数据的特征（4V&#x2F;5V）</h4><p>数据量大（Volume）、数据类型繁多（Variety）、处理速度快（Velocity）、价值密度低（Value）、真实性（Veracity）</p>
+<h4 id="三个发展阶段"><a href="#三个发展阶段" class="headerlink" title="三个发展阶段"></a>三个发展阶段</h4><ul>
+<li>萌芽期（90年代-21世纪初）：数据仓靠、专家系统、知识管理系统</li>
+<li>成熟期（21世纪前10年）：大量非结构化数据、形成并行计算与分布式计算系统</li>
+<li>大规模应用（2010年后）：已渗透到各个行业，数据驱动决策、智能化大幅提高</li>
+</ul>
+<h4 id="思维模式"><a href="#思维模式" class="headerlink" title="思维模式"></a>思维模式</h4><p>重要的新的科学研究范式：实验科学、理论科学、计算科学、数据密集型科学</p>
+<h4 id="大数据处理步骤"><a href="#大数据处理步骤" class="headerlink" title="大数据处理步骤"></a>大数据处理步骤</h4><p>（数据采集）、数据平滑与预处理、数据存储和管理、数据处理与分析、数据可视化、数据安全与隐私保护</p>
+<h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><h4 id="数据预处理的四种操作"><a href="#数据预处理的四种操作" class="headerlink" title="数据预处理的四种操作"></a>数据预处理的四种操作</h4><p>数据清洗、数据集成、数据转换、数据消减</p>
+<h4 id="数据的处理工具"><a href="#数据的处理工具" class="headerlink" title="数据的处理工具"></a>数据的处理工具</h4><p>结构化数据的处理工具：ETL工具（抽取、转换、加载）</p>
+<p>半结构化&#x2F;非结构化数据处理：分布式并行处理框架（Spark，MapReduce、Sterm）</p>
+<h4 id="数据质量问题分类"><a href="#数据质量问题分类" class="headerlink" title="数据质量问题分类"></a>数据质量问题分类</h4><p>单数据源定义层、单数据源实例层、多数据源定义层、多数据源实例层</p>
+<h4 id="数据预处理方法"><a href="#数据预处理方法" class="headerlink" title="数据预处理方法"></a>数据预处理方法</h4><p>数据清洗、数据集成、数据转换、数据消减</p>
+<h3 id="数据分析"><a href="#数据分析" class="headerlink" title="数据分析"></a>数据分析</h3><p>数据分析的四个层次：描述、诊断、预测、指令</p>
+<p>数据模型：传统模型关系模型（多对1、1对多、多对多）</p>
+<p>聚合模型（NoSQL：KV键值、文档型数据库、列存储数据库、图关系数据库）</p>
+<h3 id="大数据思维"><a href="#大数据思维" class="headerlink" title="大数据思维"></a>大数据思维</h3><p>大数据思维方式：全样而非抽样、效率而非精确、相关而非因果、以数据为中心、我为人人人人为我</p>
+<h3 id="数据处理与分析"><a href="#数据处理与分析" class="headerlink" title="数据处理与分析"></a>数据处理与分析</h3><p>数据挖掘方法：预测模型、数据分割、关联分析、偏离分析</p>
+<p>大数据处理技术：批处理计算（MapReduce、Spark），流计算（Sterm），图计算（Preged GraphX），查询分析计算（Dremel Hive）</p>
+<h3 id="数据可视化"><a href="#数据可视化" class="headerlink" title="数据可视化"></a>数据可视化</h3><p>数据可视化：将大型数据集中的数据以图形图像形式表示，并利用数据分析和开发工具发现其中未知的信息的处理过程</p>
+<h2 id="人工智能"><a href="#人工智能" class="headerlink" title="人工智能"></a>人工智能</h2><h3 id="人工智能概述"><a href="#人工智能概述" class="headerlink" title="人工智能概述"></a>人工智能概述</h3><p>人工智能定义：与人类行为形似的机器程序</p>
+<h3 id="发展阶段"><a href="#发展阶段" class="headerlink" title="发展阶段"></a>发展阶段</h3><p>人工智能在60多年间，经历了三起两落（五个阶段）的发展。</p>
+<ol>
+<li>第一次浪潮（20世纪50年代至70年代）：1956年为人工智能元年。</li>
+<li>第二次浪潮（20世纪80年代）</li>
+<li>第三次浪潮（20世纪90年代末至今）</li>
+</ol>
+<p><strong>算法、算力和大数据</strong>是人工智能的三要素。</p>
+<h4 id="人工智能基础"><a href="#人工智能基础" class="headerlink" title="人工智能基础"></a>人工智能基础</h4><p>机器学习、神经网络、深度学习、概念、模型、NLP</p>
+<p>人工智能实现方法：</p>
+<ul>
+<li>传统编程：有编程者设计逻辑过程</li>
+<li>模拟法：通过学习获得能力</li>
+</ul>
+<h3 id="机器学习基础"><a href="#机器学习基础" class="headerlink" title="机器学习基础"></a>机器学习基础</h3><p>机器学习：监督、无监督、强化</p>
+<p>传统机器学习：贝叶斯算法、决策树、支持向量机</p>
+<h3 id="人工神经网络与机器学习"><a href="#人工神经网络与机器学习" class="headerlink" title="人工神经网络与机器学习"></a>人工神经网络与机器学习</h3><p>人工神经网络：神经元模型、输入、权重、偏置、激活函数、输入层、隐藏（含）层、输出层</p>
+<p>类型：</p>
+<ul>
+<li>卷积神经网络：图像分析（检测、分割、识别）</li>
+<li>循环神经网络：语言识别、语言建模、机器翻译</li>
+<li>深度信念网络：语音识别</li>
+<li>生成对抗网络：生成新的样本</li>
+</ul>
+<h4 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h4><p>多层人工神经网络</p>
+<p>应用领域：</p>
+<ul>
+<li>非结构化数据（图像，音频，文本）</li>
+<li>有大量可用数据</li>
+<li>有足够计算能力或实践</li>
+</ul>
+<p>NLP大模型：包含数百亿及以上参数的深度神经网络构建的语言模型，通常使用自监督学习方法通过大量无标注文本训练</p>
+<p>构建流程：预训练、有监督微调、奖励建模、强化学习</p>
+<p>参考文章：<br><a href="">参考链接</a></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>新技术总结</p><p><a href="https://blog.jankiny.live/Notes/新技术总结/">https://blog.jankiny.live/Notes/新技术总结/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Janki</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-10-10</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-10-13</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_button_wechat"></a><a class="a2a_button_douban"></a><a class="a2a_button_linkedin"></a><a class="a2a_button_pocket"></a><a class="a2a_button_mendeley"></a><a class="a2a_button_telegram"></a></div><script async src="https://static.addtoany.com/menu/page.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Academics/latex%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"><span class="level-item">Latex使用手册</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css"><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js"></script><script>new DisqusJS({
+            shortname: 'https-jankiny-github-io',
+            apikey: "dFxfGm5FVQWhJ3c7RWPy1jr8WCmHPYdtJw64NPlW0QBxlgHGEb3g1pIgNA4SS5aA",
+            siteName: "Janki's Blog",
+            identifier: "20241010-techbase",
+            url: "https://blog.jankiny.live/Notes/%E6%96%B0%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/",
+            title: "新技术总结",
+            api: "https://disqus.skk.moe/disqus/",
+            admin: "Jankiny",
+            adminLabel: "Admin",
+            nesting: 4,
+        });</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex is-mobile" href="#云计算"><span class="mr-2">1</span><span>云计算</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#云计算概念"><span class="mr-2">1.1</span><span>云计算概念</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#计算方式发展的几个阶段"><span class="mr-2">1.1.1</span><span>计算方式发展的几个阶段</span></a></li><li><a class="is-flex is-mobile" href="#基本特征"><span class="mr-2">1.1.2</span><span>基本特征</span></a></li><li><a class="is-flex is-mobile" href="#云计算的设计目标"><span class="mr-2">1.1.3</span><span>云计算的设计目标</span></a></li><li><a class="is-flex is-mobile" href="#云计算的系统架构（四层两域）"><span class="mr-2">1.1.4</span><span>云计算的系统架构（四层两域）</span></a></li><li><a class="is-flex is-mobile" href="#云服务的服务模型"><span class="mr-2">1.1.5</span><span>云服务的服务模型</span></a></li><li><a class="is-flex is-mobile" href="#云的部署模型："><span class="mr-2">1.1.6</span><span>云的部署模型：</span></a></li><li><a class="is-flex is-mobile" href="#云计算设计的主要技术"><span class="mr-2">1.1.7</span><span>云计算设计的主要技术</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#虚拟化技术"><span class="mr-2">1.2</span><span>虚拟化技术</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#虚拟化对象"><span class="mr-2">1.2.1</span><span>虚拟化对象</span></a></li><li><a class="is-flex is-mobile" href="#虚拟化实现的层次"><span class="mr-2">1.2.2</span><span>虚拟化实现的层次</span></a></li><li><a class="is-flex is-mobile" href="#硬件虚拟化"><span class="mr-2">1.2.3</span><span>硬件虚拟化</span></a></li><li><a class="is-flex is-mobile" href="#容器技术"><span class="mr-2">1.2.4</span><span>容器技术</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#分布式计算"><span class="mr-2">1.3</span><span>分布式计算</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#分布式系统"><span class="mr-2">1.3.1</span><span>分布式系统</span></a></li><li><a class="is-flex is-mobile" href="#分布式计算-1"><span class="mr-2">1.3.2</span><span>分布式计算</span></a></li><li><a class="is-flex is-mobile" href="#分布式系统的计算模型"><span class="mr-2">1.3.3</span><span>分布式系统的计算模型</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#分布式存储"><span class="mr-2">1.4</span><span>分布式存储</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#存储技术发展阶段"><span class="mr-2">1.4.1</span><span>存储技术发展阶段</span></a></li><li><a class="is-flex is-mobile" href="#分布式文件系统"><span class="mr-2">1.4.2</span><span>分布式文件系统</span></a></li><li><a class="is-flex is-mobile" href="#分布式数据库"><span class="mr-2">1.4.3</span><span>分布式数据库</span></a></li><li><a class="is-flex is-mobile" href="#分布式数据库的一致性问题"><span class="mr-2">1.4.4</span><span>分布式数据库的一致性问题</span></a></li></ul></li></ul></li><li><a class="is-flex is-mobile" href="#物联网"><span class="mr-2">2</span><span>物联网</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#物联网的概念"><span class="mr-2">2.1</span><span>物联网的概念</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#物联网起源"><span class="mr-2">2.1.1</span><span>物联网起源</span></a></li><li><a class="is-flex is-mobile" href="#物联网的驱动力"><span class="mr-2">2.1.2</span><span>物联网的驱动力</span></a></li><li><a class="is-flex is-mobile" href="#物联网基础架构"><span class="mr-2">2.1.3</span><span>物联网基础架构</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#传感技术"><span class="mr-2">2.2</span><span>传感技术</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#传感器技术"><span class="mr-2">2.2.1</span><span>传感器技术</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#"><span class="mr-2">2.3</span><span> </span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#标识与自动识别技术"><span class="mr-2">2.3.1</span><span>标识与自动识别技术</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#自组织网络-传感网络"><span class="mr-2">2.4</span><span>自组织网络/传感网络</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#无线传感网"><span class="mr-2">2.4.1</span><span>无线传感网</span></a></li><li><a class="is-flex is-mobile" href="#目的"><span class="mr-2">2.4.2</span><span>目的</span></a></li><li><a class="is-flex is-mobile" href="#无线传感器网的体系结构"><span class="mr-2">2.4.3</span><span>无线传感器网的体系结构</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#无线通信技术及相关协议"><span class="mr-2">2.5</span><span>无线通信技术及相关协议</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#大数据"><span class="mr-2">3</span><span>大数据</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#大数据概念"><span class="mr-2">3.1</span><span>大数据概念</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#大数据的特征（4V-5V）"><span class="mr-2">3.1.1</span><span>大数据的特征（4V/5V）</span></a></li><li><a class="is-flex is-mobile" href="#三个发展阶段"><span class="mr-2">3.1.2</span><span>三个发展阶段</span></a></li><li><a class="is-flex is-mobile" href="#思维模式"><span class="mr-2">3.1.3</span><span>思维模式</span></a></li><li><a class="is-flex is-mobile" href="#大数据处理步骤"><span class="mr-2">3.1.4</span><span>大数据处理步骤</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#数据预处理"><span class="mr-2">3.2</span><span>数据预处理</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#数据预处理的四种操作"><span class="mr-2">3.2.1</span><span>数据预处理的四种操作</span></a></li><li><a class="is-flex is-mobile" href="#数据的处理工具"><span class="mr-2">3.2.2</span><span>数据的处理工具</span></a></li><li><a class="is-flex is-mobile" href="#数据质量问题分类"><span class="mr-2">3.2.3</span><span>数据质量问题分类</span></a></li><li><a class="is-flex is-mobile" href="#数据预处理方法"><span class="mr-2">3.2.4</span><span>数据预处理方法</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#数据分析"><span class="mr-2">3.3</span><span>数据分析</span></a></li><li><a class="is-flex is-mobile" href="#大数据思维"><span class="mr-2">3.4</span><span>大数据思维</span></a></li><li><a class="is-flex is-mobile" href="#数据处理与分析"><span class="mr-2">3.5</span><span>数据处理与分析</span></a></li><li><a class="is-flex is-mobile" href="#数据可视化"><span class="mr-2">3.6</span><span>数据可视化</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#人工智能"><span class="mr-2">4</span><span>人工智能</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#人工智能概述"><span class="mr-2">4.1</span><span>人工智能概述</span></a></li><li><a class="is-flex is-mobile" href="#发展阶段"><span class="mr-2">4.2</span><span>发展阶段</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#人工智能基础"><span class="mr-2">4.2.1</span><span>人工智能基础</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#机器学习基础"><span class="mr-2">4.3</span><span>机器学习基础</span></a></li><li><a class="is-flex is-mobile" href="#人工神经网络与机器学习"><span class="mr-2">4.4</span><span>人工神经网络与机器学习</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#深度学习"><span class="mr-2">4.4.1</span><span>深度学习</span></a></li></ul></li></ul></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Janki</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2024</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny/hexo-theme-solon"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Wandb使用及本地部署 - Janki&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Janki&#039;s Blog"><meta name="msapplication-TileImage" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Janki&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="如何在本地部署Weights &amp;amp; Biases（W&amp;amp;B）"><meta property="og:type" content="blog"><meta property="og:title" content="Wandb使用及本地部署"><meta property="og:url" content="https://blog.jankiny.live/Interests/wandb%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/"><meta property="og:site_name" content="Janki&#039;s Blog"><meta property="og:description" content="如何在本地部署Weights &amp;amp; Biases（W&amp;amp;B）"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><meta property="article:published_time" content="2024-05-07T13:14:00.000Z"><meta property="article:modified_time" content="2024-09-04T02:58:16.713Z"><meta property="article:author" content="Janki"><meta property="article:tag" content="docker"><meta property="article:tag" content="wandb"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jankiny.live/Interests/wandb%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/"},"headline":"Wandb使用及本地部署","image":["https://blog.jankiny.live/img/og_image.png"],"datePublished":"2024-05-07T13:14:00.000Z","dateModified":"2024-09-04T02:58:16.713Z","author":{"@type":"Person","name":"Janki"},"publisher":{"@type":"Organization","name":"Janki's Blog","logo":{"@type":"ImageObject","url":"https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"}},"description":"如何在本地部署Weights &amp; Biases（W&amp;B）"}</script><link rel="canonical" href="https://blog.jankiny.live/Interests/wandb%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/"><link rel="alternate" href="/atom.xml" title="Janki&#039;s Blog" type="application/atom+xml"><link rel="icon" href="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?1c50c25906bc6a7f7aa6ce6eca1137ce";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><meta name="msvalidate.01" content="AB525823A0CA2DE82C6A7405BE45A1CE"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-GJ61XKWF4E" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-GJ61XKWF4E');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-05-07T13:14:00.000Z" title="5/7/2024, 1:14:00 PM">2024-05-07</time>发表</span><span class="level-item"><time dateTime="2024-09-04T02:58:16.713Z" title="9/4/2024, 2:58:16 AM">2024-09-04</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Interests/">玩味篇</a></span><span class="level-item">2 分钟读完 (大约275个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Wandb使用及本地部署</h1><div class="content"><p>如何在本地部署Weights &amp; Biases（W&amp;B）</p>
+<span id="more"></span>
+
+<p><strong>AI导读：</strong>本文讨论了如何在本地部署Weights &amp; Biases（W&amp;B），主要包括使用docker进行部署的步骤。首先，用户需要有可以访问的服务器或在本机上进行部署，并确保已安装docker。在docker中，用户需从docker hub拉取wandb&#x2F;local镜像并启动容器，指定端口6010以供外部访问。此外，文章还提到如果在更改设置后遇到问题，可以查看Docker容器的日志以获取帮助。最后，文中提供了切换到本地和远程的操作指南及相关参考链接。</p>
+<h2 id="在代码中使用"><a href="#在代码中使用" class="headerlink" title="在代码中使用"></a>在代码中使用</h2><h2 id="本地部署"><a href="#本地部署" class="headerlink" title="本地部署"></a>本地部署</h2><h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>使用可以访问的服务器（使用内网穿透）或在本机部署</p>
+<p>安装docker（linux）</p>
+<h3 id="使用docker部署"><a href="#使用docker部署" class="headerlink" title="使用docker部署"></a>使用docker部署</h3><p>从docker hub拉取<code>wandb/local</code>镜像</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull wandb/local</span><br></pre></td></tr></table></figure>
+
+<p>启动容器，指定端口<code>6010</code>为外部访问端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -d \</span><br><span class="line">	-e HOST=http://server_ip:6010 \</span><br><span class="line">	-p 6010:8080 \</span><br><span class="line">	-v /path/on/host:/vol \</span><br><span class="line">	--name wandb-local \</span><br><span class="line">	wandb/local</span><br></pre></td></tr></table></figure>
+
+ 
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker run --<span class="built_in">rm</span> -d \</span><br><span class="line">	-e HOST=http://home.jankiny.ninja:6010 \</span><br><span class="line">	-p 6010:8080 \</span><br><span class="line">	-v /home/home/wandb/data:/vol \</span><br><span class="line">	--name wandb-local \</span><br><span class="line">	wandb/local</span><br></pre></td></tr></table></figure>
+
+
+<p>如果更改设置后遇到问题，查看 Docker 容器的日志可能会提供有用的信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker logs wandb-local</span><br></pre></td></tr></table></figure>
+
+<h3 id="配置Wandb-Local"><a href="#配置Wandb-Local" class="headerlink" title="配置Wandb Local"></a>配置Wandb Local</h3><h2 id="本地与远程切换"><a href="#本地与远程切换" class="headerlink" title="本地与远程切换"></a>本地与远程切换</h2><p>切换到本地</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wandb login --relogin --host=http://server_ip:6010</span><br></pre></td></tr></table></figure>
+
+ 
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wandb login --relogin --host=http://home.jankiny.ninja:6010</span><br></pre></td></tr></table></figure>
+
+
+
+<p>求换到<code>wandb.ai</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wandb login --relogin --host=https://api.wandb.ai</span><br></pre></td></tr></table></figure>
+
+
+
+<p>参考文章：<br><a target="_blank" rel="noopener" href="https://docs.wandb.ai/guides/hosting/self-managed/basic-setup#3-generate-a-license">Getting started | Weights &amp; Biases Documentation (wandb.ai)</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/wandb/server/issues/46">system-admin – Application Error Unable to reach the backend api. If this perists, check the system logs. · Issue #46 · wandb&#x2F;server (github.com)</a></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Wandb使用及本地部署</p><p><a href="https://blog.jankiny.live/Interests/wandb使用及本地部署/">https://blog.jankiny.live/Interests/wandb使用及本地部署/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Janki</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-05-07</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-04</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/docker/">docker</a><a class="link-muted mr-2" rel="tag" href="/tags/wandb/">wandb</a></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_button_wechat"></a><a class="a2a_button_douban"></a><a class="a2a_button_linkedin"></a><a class="a2a_button_pocket"></a><a class="a2a_button_mendeley"></a><a class="a2a_button_telegram"></a></div><script async src="https://static.addtoany.com/menu/page.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Interests/%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9B%91%E6%8E%A7%E5%B9%B3%E5%8F%B0%EF%BC%88docker%EF%BC%9Agrafana-prometheus-node-exporter%EF%BC%89/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">服务器监控平台（Docker：grafana+prometheus+node_exporter）</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Interests/nas%EF%BC%9Aimmich%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/"><span class="level-item">NAS：Immich使用说明</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css"><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js"></script><script>new DisqusJS({
+            shortname: 'https-jankiny-github-io',
+            apikey: "dFxfGm5FVQWhJ3c7RWPy1jr8WCmHPYdtJw64NPlW0QBxlgHGEb3g1pIgNA4SS5aA",
+            siteName: "Janki's Blog",
+            identifier: "20240507-wandb-local",
+            url: "https://blog.jankiny.live/Interests/wandb%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2/",
+            title: "Wandb使用及本地部署",
+            api: "https://disqus.skk.moe/disqus/",
+            admin: "Jankiny",
+            adminLabel: "Admin",
+            nesting: 4,
+        });</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex is-mobile" href="#在代码中使用"><span class="mr-2">1</span><span>在代码中使用</span></a></li><li><a class="is-flex is-mobile" href="#本地部署"><span class="mr-2">2</span><span>本地部署</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#前提"><span class="mr-2">2.1</span><span>前提</span></a></li><li><a class="is-flex is-mobile" href="#使用docker部署"><span class="mr-2">2.2</span><span>使用docker部署</span></a></li><li><a class="is-flex is-mobile" href="#配置Wandb-Local"><span class="mr-2">2.3</span><span>配置Wandb Local</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#本地与远程切换"><span class="mr-2">3</span><span>本地与远程切换</span></a></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Janki</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2024</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny/hexo-theme-solon"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

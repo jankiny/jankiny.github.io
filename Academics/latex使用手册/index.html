@@ -1,0 +1,618 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Latex使用手册 - Janki&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Janki&#039;s Blog"><meta name="msapplication-TileImage" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Janki&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Latex使用手册。提供了常用符号源码，常用排版源码。"><meta property="og:type" content="blog"><meta property="og:title" content="Latex使用手册"><meta property="og:url" content="https://blog.jankiny.live/Academics/latex%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"><meta property="og:site_name" content="Janki&#039;s Blog"><meta property="og:description" content="Latex使用手册。提供了常用符号源码，常用排版源码。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><meta property="article:published_time" content="2024-09-17T09:49:00.000Z"><meta property="article:modified_time" content="2024-09-17T10:44:04.362Z"><meta property="article:author" content="Janki"><meta property="article:tag" content="GMCM"><meta property="article:tag" content="数模"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/avatar-2.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jankiny.live/Academics/latex%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"},"headline":"Latex使用手册","image":["https://blog.jankiny.live/img/og_image.png"],"datePublished":"2024-09-17T09:49:00.000Z","dateModified":"2024-09-17T10:44:04.362Z","author":{"@type":"Person","name":"Janki"},"publisher":{"@type":"Organization","name":"Janki's Blog","logo":{"@type":"ImageObject","url":"https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"}},"description":"Latex使用手册。提供了常用符号源码，常用排版源码。"}</script><link rel="canonical" href="https://blog.jankiny.live/Academics/latex%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"><link rel="alternate" href="/atom.xml" title="Janki&#039;s Blog" type="application/atom+xml"><link rel="icon" href="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link data-pjax rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link data-pjax rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><script>var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?1c50c25906bc6a7f7aa6ce6eca1137ce";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();</script><meta name="msvalidate.01" content="AB525823A0CA2DE82C6A7405BE45A1CE"><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><script src="https://www.googletagmanager.com/gtag/js?id=G-GJ61XKWF4E" async></script><script>window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+    
+        gtag('config', 'G-GJ61XKWF4E');</script><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">首页</a><a class="navbar-item" href="/archives">归档</a><a class="navbar-item" href="/categories">分类</a><a class="navbar-item" href="/tags">标签</a><a class="navbar-item" href="/about">关于</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny"><i class="fab fa-github"></i></a><a class="navbar-item is-hidden-tablet catalogue" title="目录" href="javascript:;"><i class="fas fa-list-ul"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-09-17T09:49:00.000Z" title="9/17/2024, 9:49:00 AM">2024-09-17</time>发表</span><span class="level-item"><time dateTime="2024-09-17T10:44:04.362Z" title="9/17/2024, 10:44:04 AM">2024-09-17</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/Academics/">学术笔</a></span><span class="level-item">10 分钟读完 (大约1518个字)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>次访问</span></div></div><h1 class="title is-3 is-size-4-mobile">Latex使用手册</h1><div class="content"><p>Latex使用手册。提供了常用符号源码，常用排版源码。</p>
+<span id="more"></span>
+
+<p><strong>AI导读：</strong>本文为LaTeX使用手册，涵盖了常用符号和排版技巧。主要内容包括数字序号及圆圈序号的用法，以及多行公式的排版方法，例如通过<code>cases</code>和<code>array</code>环境进行条件表达式的展示。此外，还提供了插入图像和表格的最佳实践，强调在生成表格时需注意\label的位置，以及表格列格式的定义。此外，文中列举了常用的数学符号、希腊字母及二元关系符和运算符的用法，旨在帮助用户更有效地使用LaTeX进行排版与公式编辑。</p>
+<h2 id="排版"><a href="#排版" class="headerlink" title="排版"></a>排版</h2><h3 id="数字序号"><a href="#数字序号" class="headerlink" title="数字序号"></a>数字序号</h3><p><strong>圆圈序号：</strong>①②③④⑤⑥⑦⑧⑨⑩</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\textcircled</span>&#123;<span class="keyword">\scriptsize</span>&#123;1&#125;&#125;</span><br><span class="line"><span class="keyword">\textcircled</span>&#123;<span class="keyword">\scriptsize</span>&#123;2&#125;&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="多行公式"><a href="#多行公式" class="headerlink" title="多行公式"></a>多行公式</h3><p>公式太长一行放不下，可以分成多行</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">        <span class="keyword">\sum</span><span class="built_in">_</span>&#123;k <span class="keyword">\in</span> adj(j)&#125; x<span class="built_in">_</span>&#123;i,k,t+1&#125; <span class="built_in">&amp;</span>= (j <span class="keyword">\mod</span> W &lt; W - 1) <span class="keyword">\cdot</span> x<span class="built_in">_</span>&#123;i,j+1,t+1&#125; + (j <span class="keyword">\mod</span> W &gt; 0) <span class="keyword">\cdot</span> x<span class="built_in">_</span>&#123;i,j-1,t+1&#125; <span class="keyword">\\</span></span><br><span class="line">                                        <span class="built_in">&amp;</span>+ (j + W &lt; W <span class="keyword">\times</span> H) <span class="keyword">\cdot</span> x<span class="built_in">_</span>&#123;i,j+W,t+1&#125; + (j - W <span class="keyword">\geq</span> 0) <span class="keyword">\cdot</span> x<span class="built_in">_</span>&#123;i,j-W,t+1&#125; <span class="keyword">\\</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;aligned&#125;    </span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+
+<span>
+$$
+\begin{equation}
+    \begin{aligned}
+        \sum_{k \in adj(j)} x_{i,k,t+1} &= (j \mod W < W - 1) \cdot x_{i,j+1,t+1} + (j \mod W > 0) \cdot x_{i,j-1,t+1} \\
+                                        &+ (j + W < W \times H) \cdot x_{i,j+W,t+1} + (j - W \geq 0) \cdot x_{i,j-W,t+1} \\
+    \end{aligned}    
+\end{equation}
+$$
+</span>
+
+
+<h3 id="带大括号的多行公式"><a href="#带大括号的多行公式" class="headerlink" title="带大括号的多行公式"></a>带大括号的多行公式</h3><p>用<code>cases</code>实现</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">        z<span class="built_in">_</span>&#123;ijk&#125;= </span><br><span class="line">        <span class="keyword">\begin</span>&#123;cases&#125;</span><br><span class="line">            1 <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;若插槽<span class="built_in">$</span>j<span class="built_in">$</span>放置第<span class="built_in">$</span>i<span class="built_in">$</span>个包装需要颜色<span class="built_in">$</span>k<span class="built_in">$</span>&#125; <span class="keyword">\\</span></span><br><span class="line">            0 <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;否则&#125; <span class="keyword">\\</span>            </span><br><span class="line">        <span class="keyword">\end</span>&#123;cases&#125;</span><br><span class="line">    <span class="keyword">\end</span>&#123;aligned&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+
+<span>
+$$
+\begin{equation}
+    \begin{aligned}
+        z_{ijk}= 
+        \begin{cases}
+            1 & \text{若插槽$j$放置第$i$个包装需要颜色$k$} \\
+            0 & \text{否则} \\            
+        \end{cases}
+    \end{aligned}
+\end{equation}
+$$
+</span>
+
+
+<p>用<code>array</code>实现（有居中的需求）</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line">    z<span class="built_in">_</span>&#123;ijk&#125;=<span class="keyword">\left</span><span class="keyword">\&#123;</span></span><br><span class="line">        <span class="keyword">\begin</span>&#123;array&#125;&#123;rc&#125;</span><br><span class="line">            1 <span class="built_in">&amp;</span>    <span class="keyword">\text</span>&#123;若插槽<span class="built_in">$</span>j<span class="built_in">$</span>放置第<span class="built_in">$</span>i<span class="built_in">$</span>个包装需要颜色<span class="built_in">$</span>k<span class="built_in">$</span>&#125;  <span class="keyword">\\</span></span><br><span class="line">            0 <span class="built_in">&amp;</span>    <span class="keyword">\text</span>&#123;否则&#125;  <span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\end</span>&#123;array&#125; <span class="keyword">\right</span>.</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+
+
+<span>
+$$
+\begin{equation}
+    z_{ijk}=\left\{
+        \begin{array}{rc}
+            1&    \text{若插槽$j$放置第$i$个包装需要颜色$k$}  \\
+            0&    \text{否则}  \\
+        \end{array} \right.
+\end{equation}
+$$
+</span>
+
+<p>补充例子：目标函数</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">% 使用cases</span></span><br><span class="line"><span class="keyword">\begin</span>&#123;equation&#125;</span><br><span class="line">    <span class="keyword">\begin</span>&#123;aligned&#125;</span><br><span class="line">    <span class="built_in">&amp;</span> t = <span class="keyword">\min</span> <span class="keyword">\sum</span><span class="built_in">^</span>&#123;P-1&#125;<span class="built_in">_</span>&#123;i=1&#125; <span class="keyword">\sum</span><span class="built_in">^</span>&#123;S&#125;<span class="built_in">_</span>&#123;j=1&#125; T(u<span class="built_in">^</span>j<span class="built_in">_</span>&#123;i-1&#125;, u<span class="built_in">^</span>j<span class="built_in">_</span>&#123;i&#125;) <span class="keyword">\\</span></span><br><span class="line">    <span class="built_in">&amp;</span> <span class="keyword">\text</span>&#123;s.t.&#125;</span><br><span class="line">        <span class="keyword">\begin</span>&#123;cases&#125;</span><br><span class="line">            <span class="comment">% 1 辅助变量u</span></span><br><span class="line">            u<span class="built_in">^</span>&#123;j&#125;<span class="built_in">_</span>&#123;i&#125; = <span class="keyword">\sum</span><span class="built_in">^</span>&#123;C&#125;<span class="built_in">_</span>&#123;k=1&#125; k <span class="keyword">\cdot</span> z<span class="built_in">_</span>&#123;ijk&#125; <span class="built_in">&amp;</span> <span class="keyword">\\</span></span><br><span class="line">            <span class="comment">% 2 每个插槽$j$在某一时刻只能容纳一种墨盒</span></span><br><span class="line">            <span class="keyword">\sum</span><span class="built_in">^</span>&#123;C&#125;<span class="built_in">_</span>&#123;k=1&#125; z<span class="built_in">_</span>&#123;ijk&#125; = 1 <span class="built_in">&amp;</span> <span class="keyword">\quad</span> <span class="keyword">\forall</span> i <span class="keyword">\in</span> <span class="keyword">\mathcal</span>&#123;P&#125;, <span class="keyword">\forall</span> j <span class="keyword">\in</span> <span class="keyword">\mathcal</span>&#123;S&#125; <span class="keyword">\\</span>     </span><br><span class="line">        <span class="keyword">\end</span>&#123;cases&#125;</span><br><span class="line">    <span class="keyword">\end</span>&#123;aligned&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;equation&#125;</span><br></pre></td></tr></table></figure>
+
+<span>
+$$
+\begin{equation}
+    \begin{aligned}
+    & t = \min \sum^{P-1}_{i=1} \sum^{S}_{j=1} T(u^j_{i-1}, u^j_{i}) \\
+    & \text{s.t.}
+        \begin{cases}
+            % 1 辅助变量u
+            u^{j}_{i} = \sum^{C}_{k=1} k \cdot z_{ijk} & \\
+            % 2 每个插槽$j$在某一时刻只能容纳一种墨盒
+            \sum^{C}_{k=1} z_{ijk} = 1 & \quad \forall i \in \mathcal{P}, \forall j \in \mathcal{S} \\     
+        \end{cases}
+    \end{aligned}
+\end{equation}
+$$
+</span>
+
+
+
+
+
+
+
+<h3 id="插入图像"><a href="#插入图像" class="headerlink" title="插入图像"></a>插入图像</h3><p>单图：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[h]</span><br><span class="line">    <span class="keyword">\centering</span></span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=.8<span class="keyword">\textwidth</span>]&#123;figures/asserts/chlorine<span class="built_in">_</span>decay<span class="built_in">_</span>curve.png&#125;</span><br><span class="line">    <span class="keyword">\caption</span>&#123;泳池水中余氯浓度自然衰减模型及问题一预测结果&#125;</span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:p1<span class="built_in">_</span>cd<span class="built_in">_</span>curve&#125;</span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+<p>多子图（上下）：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[h]</span><br><span class="line">  <span class="keyword">\centering</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">\begin</span>&#123;subfigure&#125;&#123;<span class="keyword">\linewidth</span>&#125;</span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;figures/asserts/1bg<span class="built_in">_</span>history<span class="built_in">_</span>data.png&#125; <span class="comment">% 修改</span></span><br><span class="line">    <span class="keyword">\caption</span>&#123;单并柜历史数据&#125;		  <span class="comment">% 需要修改：子图a的标题</span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:q1<span class="built_in">_</span>history<span class="built_in">_</span>data<span class="built_in">_</span>1bg&#125;	<span class="comment">% 需要修改：子图a的Label</span></span><br><span class="line">  <span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">\begin</span>&#123;subfigure&#125;&#123;<span class="keyword">\linewidth</span>&#125;</span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=<span class="keyword">\textwidth</span>]&#123;figures/asserts/2bg<span class="built_in">_</span>history<span class="built_in">_</span>data.png&#125; <span class="comment">% 修改</span></span><br><span class="line">    <span class="keyword">\caption</span>&#123;二并柜历史数据&#125;		  <span class="comment">% 需要修改：子图b的标题</span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:q1<span class="built_in">_</span>history<span class="built_in">_</span>data<span class="built_in">_</span>2bg&#125;	<span class="comment">% 需要修改：子图b的Label</span></span><br><span class="line">  <span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">\caption</span>&#123;历史数据可视化图&#125;		 <span class="comment">% 需要修改：整个图的标题</span></span><br><span class="line">  <span class="keyword">\label</span>&#123;fig:q1<span class="built_in">_</span>history<span class="built_in">_</span>data&#125;	    <span class="comment">% 需要修改：整个图的Label</span></span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+<p>多子图（左右）：</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;figure&#125;[h]</span><br><span class="line">  <span class="keyword">\centering</span></span><br><span class="line">  </span><br><span class="line">  <span class="keyword">\begin</span>&#123;subfigure&#125;&#123;0.48<span class="keyword">\linewidth</span>&#125;</span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=1<span class="keyword">\textwidth</span>]&#123;figures/asserts/p2<span class="built_in">_</span>e1<span class="built_in">_</span>curve.png&#125; <span class="comment">% 修改</span></span><br><span class="line">    <span class="keyword">\caption</span>&#123;指数一阶衰减模型&#125;	<span class="comment">% 需要修改：子图a的标题</span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:p2<span class="built_in">_</span>e1&#125;		  <span class="comment">% 需要修改：子图a的Label</span></span><br><span class="line">  <span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">\hfill</span> <span class="comment">% 在两个子图中间添加，用于填充(1-0.48-0.48)宽度的空白</span></span><br><span class="line">  <span class="keyword">\begin</span>&#123;subfigure&#125;&#123;0.48<span class="keyword">\linewidth</span>&#125;</span><br><span class="line">    <span class="keyword">\includegraphics</span>[width=1<span class="keyword">\textwidth</span>]&#123;figures/asserts/p2<span class="built_in">_</span>e2<span class="built_in">_</span>curve.png&#125; <span class="comment">% 修改</span></span><br><span class="line">    <span class="keyword">\caption</span>&#123;指数二阶衰减模型&#125;	<span class="comment">% 需要修改：子图b的标题</span></span><br><span class="line">    <span class="keyword">\label</span>&#123;fig:p2<span class="built_in">_</span>e2&#125;		  <span class="comment">% 需要修改：子图b的Label</span></span><br><span class="line">  <span class="keyword">\end</span>&#123;subfigure&#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">\caption</span>&#123;指数衰减模型拟合曲线&#125; <span class="comment">% 需要修改：整个图的标题</span></span><br><span class="line">  <span class="keyword">\label</span>&#123;fig:p2<span class="built_in">_</span>e&#125;			  <span class="comment">% 需要修改：整个图的Label</span></span><br><span class="line"><span class="keyword">\end</span>&#123;figure&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="插入表格"><a href="#插入表格" class="headerlink" title="插入表格"></a>插入表格</h3><p><strong>最佳实践：</strong>先到<a target="_blank" rel="noopener" href="https://www.tablesgenerator.com/">TablesGenerator</a>中将内容输入到可视化的界面中，然后生成latex的表格，在将<code>\begin&#123;tabular&#125;&#123;...&#125;</code>到<code>\end&#123;tabular&#125;</code>中的内容复制到下面的模板中。</p>
+<figure class="highlight latex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">\begin</span>&#123;table&#125;[h]</span><br><span class="line">    <span class="keyword">\caption</span>&#123;LSTM模型评价&#125;		<span class="comment">% 需要修改：表的标题</span></span><br><span class="line">    <span class="keyword">\label</span>&#123;tab:lstm<span class="built_in">_</span>metric&#125;		<span class="comment">% 需要修改：表的Label</span></span><br><span class="line">    <span class="keyword">\centering</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">\begin</span>&#123;tabular&#125;&#123;llll&#125; <span class="comment">% 需要修改：每列的长度和对其方式</span></span><br><span class="line">        <span class="keyword">\toprule</span></span><br><span class="line">        设别类型 <span class="built_in">&amp;</span> MAE<span class="built_in">$</span><span class="keyword">\downarrow</span><span class="built_in">$</span>   <span class="built_in">&amp;</span> R2 <span class="built_in">$</span><span class="keyword">\uparrow</span><span class="built_in">$</span> <span class="built_in">&amp;</span> AdjR2 <span class="built_in">$</span><span class="keyword">\uparrow</span><span class="built_in">$</span>  <span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\midrule</span></span><br><span class="line">        单并柜        <span class="built_in">&amp;</span> 9.594             <span class="built_in">&amp;</span> 0.9885        <span class="built_in">&amp;</span> 0.9885 <span class="keyword">\\</span></span><br><span class="line">        二并柜        <span class="built_in">&amp;</span> 6.517             <span class="built_in">&amp;</span> 0.9982        <span class="built_in">&amp;</span> 0.9982 <span class="keyword">\\</span></span><br><span class="line">        三并柜        <span class="built_in">&amp;</span> 24.43             <span class="built_in">&amp;</span> 0.8173        <span class="built_in">&amp;</span> 0.8172 <span class="keyword">\\</span></span><br><span class="line">        <span class="keyword">\bottomrule</span></span><br><span class="line">    <span class="keyword">\end</span>&#123;tabular&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">\end</span>&#123;table&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意：</p>
+<ul>
+<li><p><code>\label</code>要在<code>\caption</code>后一行，否则会引用不到。figure中也是。</p>
+</li>
+<li><p><code>\begin&#123;tabular&#125;&#123;...&#125;</code>中的第二个大括号（<code>&#123;&#125;</code>）是用来定义表格的列格式和对齐方式的。</p>
+</li>
+</ul>
+<h2 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h2><h3 id="常用文本-数学通用符号"><a href="#常用文本-数学通用符号" class="headerlink" title="常用文本&#x2F;数学通用符号"></a>常用文本&#x2F;数学通用符号</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>{</td>
+<td><code>\&#123;</code></td>
+<td>}</td>
+<td><code>\&#125;</code></td>
+<td>$</td>
+<td><code>\$</code></td>
+<td>%</td>
+<td><code>\%</code></td>
+</tr>
+<tr>
+<td>$\S$</td>
+<td><code>\S$</code></td>
+<td>$\P$</td>
+<td><code>\P</code></td>
+<td>$\dots$</td>
+<td><code>\dots</code></td>
+<td>$\cdots$</td>
+<td><code>\cdots</code></td>
+</tr>
+<tr>
+<td>$\dagger$</td>
+<td><code>\dagger</code></td>
+<td>$\ddagger$</td>
+<td><code>\ddagger</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="常用希腊字母"><a href="#常用希腊字母" class="headerlink" title="常用希腊字母"></a>常用希腊字母</h3><p>\Alpha，\Beta 等希腊字母符号不存在，因为它们和拉丁字母A,B 等一模一样；小写字母里也不存在\omicron，直接用拉丁字母o 代替。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>源码</th>
+<th></th>
+<th>源码</th>
+<th></th>
+<th>源码</th>
+<th></th>
+<th>源码</th>
+<th></th>
+<th>源码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\alpha$</td>
+<td><code>\alpha</code></td>
+<td>$\beta$</td>
+<td><code>\beta</code></td>
+<td>$\gamma$</td>
+<td><code>\gamma</code></td>
+<td>$\delta$</td>
+<td><code>\delta</code></td>
+<td>$\epsilon$</td>
+<td><code>\epsilon</code></td>
+</tr>
+<tr>
+<td>$\lambda$</td>
+<td><code>\lambda</code></td>
+<td>$\zeta$</td>
+<td><code>\zeta</code></td>
+<td>$\eta$</td>
+<td><code>\eta</code></td>
+<td>$\theta$</td>
+<td><code>\theta</code></td>
+<td>$\omega$</td>
+<td><code>\omega</code></td>
+</tr>
+<tr>
+<td>$\tau$</td>
+<td><code>\tau</code></td>
+<td>$\mu$</td>
+<td><code>$\mu</code></td>
+<td>$\xi$</td>
+<td><code>\xi</code></td>
+<td>$\pi$</td>
+<td><code>\pi</code></td>
+<td>$\rho$</td>
+<td><code>\rho</code></td>
+</tr>
+<tr>
+<td>$\sigma$</td>
+<td><code>\sigma</code></td>
+<td>$\phi$</td>
+<td><code>\phi</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\varepsilon$</td>
+<td><code>\varepsilon$</code></td>
+<td>$\vartheta$</td>
+<td><code>\vartheta</code></td>
+<td>$\varphi$</td>
+<td><code>\varphi</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\Gamma$</td>
+<td><code>\Gamma</code></td>
+<td>$\Delta$</td>
+<td><code>\Delta</code></td>
+<td>$\Theta$</td>
+<td><code>\Theta</code></td>
+<td>$\Phi$</td>
+<td><code>\Phi</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\varGamma$</td>
+<td><code>\varGamma</code></td>
+<td>$\varPhi$</td>
+<td><code>\varPhi</code></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="二元关系符"><a href="#二元关系符" class="headerlink" title="二元关系符"></a>二元关系符</h3><p>所有的二元关系符都可以加\not 前缀得到相反意义的关系符，例如\not&#x3D; 就得到不等号（同\ne）。</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;</td>
+<td><code>&lt;</code></td>
+<td>&gt;</td>
+<td><code>&gt;</code></td>
+<td>&#x3D;</td>
+<td><code>=</code></td>
+</tr>
+<tr>
+<td>$\leq$</td>
+<td><code>\leq</code></td>
+<td>$\geq$</td>
+<td><code>\geq</code></td>
+<td>$\equiv$</td>
+<td><code>\equiv</code></td>
+</tr>
+<tr>
+<td>$\ll$</td>
+<td><code>\ll</code></td>
+<td>$\gg$</td>
+<td><code>\gg</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\sim$</td>
+<td><code>\sim</code></td>
+<td>$\simeq$</td>
+<td><code>\simeq</code></td>
+<td>$\approx$</td>
+<td><code>$\approx</code></td>
+</tr>
+<tr>
+<td>$\subset$</td>
+<td><code>$\subset</code></td>
+<td>$\supset$</td>
+<td><code>\supset</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\subseteq$</td>
+<td><code>\subseteq</code></td>
+<td>$\supseteq$</td>
+<td><code>$\supseteq</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\in$</td>
+<td><code>\in</code></td>
+<td>$\ni$</td>
+<td><code>$\ni</code></td>
+<td>$\propto$</td>
+<td><code>\propto</code></td>
+</tr>
+</tbody></table>
+<h3 id="二元运算符"><a href="#二元运算符" class="headerlink" title="二元运算符"></a>二元运算符</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$+$</td>
+<td><code>+</code></td>
+<td>$-$</td>
+<td><code>-</code></td>
+<td>$\cdot$</td>
+<td><code>\cdot</code></td>
+</tr>
+<tr>
+<td>$\pm$</td>
+<td><code>\pm</code></td>
+<td>$\mp$</td>
+<td><code>\mp</code></td>
+<td>$\div$</td>
+<td><code>\div</code></td>
+</tr>
+<tr>
+<td>$\cup$</td>
+<td><code>\cup</code></td>
+<td>$\cap$</td>
+<td><code>\cap</code></td>
+<td>$\times$</td>
+<td><code>\times</code></td>
+</tr>
+<tr>
+<td>$\oplus$</td>
+<td><code>\oplus</code></td>
+<td>$\ominus$</td>
+<td><code>\ominus</code></td>
+<td>$\uplus$</td>
+<td><code>\uplus</code></td>
+</tr>
+<tr>
+<td>$\odot$</td>
+<td><code>\odot</code></td>
+<td>$\oslash$</td>
+<td><code>\oslash</code></td>
+<td>$\otimes$</td>
+<td><code>\otimes</code></td>
+</tr>
+</tbody></table>
+<h3 id="巨算符"><a href="#巨算符" class="headerlink" title="巨算符"></a>巨算符</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\sum$</td>
+<td><code>\sum</code></td>
+<td>$\bigcup$</td>
+<td><code>\bigcup</code></td>
+<td>$\bigvee$</td>
+<td><code>\bigvee</code></td>
+</tr>
+<tr>
+<td>$\prod$</td>
+<td><code>\prod</code></td>
+<td>$\bigcap$</td>
+<td><code>\bigcap</code></td>
+<td>$\bigwedge$</td>
+<td><code>\bigwedge</code></td>
+</tr>
+<tr>
+<td>$\int$</td>
+<td><code>\int</code></td>
+<td>$\biguplus$</td>
+<td><code>\biguplus</code></td>
+<td>$\bigoplus$</td>
+<td><code>\bigoplus</code></td>
+</tr>
+<tr>
+<td>$\oint$</td>
+<td><code>\oint</code></td>
+<td></td>
+<td></td>
+<td>$\bigotimes$</td>
+<td><code>\bigotimes</code></td>
+</tr>
+<tr>
+<td>$\iint$</td>
+<td><code>$\iint</code></td>
+<td></td>
+<td></td>
+<td>$\bigodot$</td>
+<td><code>\bigodot</code></td>
+</tr>
+</tbody></table>
+<h3 id="数学重音符号"><a href="#数学重音符号" class="headerlink" title="数学重音符号"></a>数学重音符号</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\hat{a}$</td>
+<td><code>\hat&#123;a&#125;</code></td>
+<td>$\tilde{a}$</td>
+<td><code>\tilde&#123;a&#125;</code></td>
+<td>$\bar{a}$</td>
+<td><code>\bar&#123;a&#125;</code></td>
+</tr>
+<tr>
+<td>$\vec{a}$</td>
+<td><code>\vec&#123;a&#125;</code></td>
+<td>$\dot{a}$</td>
+<td><code>\dot&#123;a&#125;</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="其他符号"><a href="#其他符号" class="headerlink" title="其他符号"></a>其他符号</h3><table>
+<thead>
+<tr>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+<th>符号</th>
+<th>源码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$\gets$</td>
+<td><code>\gets</code></td>
+<td>$\to$</td>
+<td><code>$\to</code></td>
+<td>$\leftrightarrow$</td>
+<td><code>\leftrightarrow</code></td>
+</tr>
+<tr>
+<td>$\uparrow$</td>
+<td><code>\uparrow</code></td>
+<td>$\downarrow$</td>
+<td><code>\downarrow</code></td>
+<td>$\rightleftharpoons$</td>
+<td><code>\rightleftharpoons</code></td>
+</tr>
+<tr>
+<td>$\longrightarrow$</td>
+<td><code>\longrightarrow</code></td>
+<td>$\Rightarrow$</td>
+<td><code>\Rightarrow</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>$\cdots$</td>
+<td><code>\cdots</code></td>
+<td>$\vdots$</td>
+<td><code>\vdots</code></td>
+<td>$\ddots$</td>
+<td><code>\ddots</code></td>
+</tr>
+<tr>
+<td>$\forall$</td>
+<td><code>\forall</code></td>
+<td>$\exists$</td>
+<td><code>\exists</code></td>
+<td>$\infty$</td>
+<td><code>\infty</code></td>
+</tr>
+<tr>
+<td>$\bot$</td>
+<td><code>\bot</code></td>
+<td>$\angle$</td>
+<td><code>\angle</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>参考文章：<br><a target="_blank" rel="noopener" href="https://texdoc.org/serve/lshort-zh-cn.pdf/0">一份(不太)简短的LATEX2ε 介绍</a></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Latex使用手册</p><p><a href="https://blog.jankiny.live/Academics/latex使用手册/">https://blog.jankiny.live/Academics/latex使用手册/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>Janki</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-09-17</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-17</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/GMCM/">GMCM</a><a class="link-muted mr-2" rel="tag" href="/tags/%E6%95%B0%E6%A8%A1/">数模</a></div><div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" target="_blank" rel="noopener" href="https://www.addtoany.com/share"></a><a class="a2a_button_email"></a><a class="a2a_button_copy_link"></a><a class="a2a_button_wechat"></a><a class="a2a_button_douban"></a><a class="a2a_button_linkedin"></a><a class="a2a_button_pocket"></a><a class="a2a_button_mendeley"></a><a class="a2a_button_telegram"></a></div><script async src="https://static.addtoany.com/menu/page.js"></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/Notes/%E6%96%B0%E6%8A%80%E6%9C%AF%E6%80%BB%E7%BB%93/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">新技术总结</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/Academics/20240913-contrastivelearning/"><span class="level-item">20240913-contrastivelearning</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card" id="comments"><div class="card-content"><h3 class="title is-5">评论</h3><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css"><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script src="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js"></script><script>new DisqusJS({
+            shortname: 'https-jankiny-github-io',
+            apikey: "dFxfGm5FVQWhJ3c7RWPy1jr8WCmHPYdtJw64NPlW0QBxlgHGEb3g1pIgNA4SS5aA",
+            siteName: "Janki's Blog",
+            identifier: "20240917-latex-kits",
+            url: "https://blog.jankiny.live/Academics/latex%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/",
+            title: "Latex使用手册",
+            api: "https://disqus.skk.moe/disqus/",
+            admin: "Jankiny",
+            adminLabel: "Admin",
+            nesting: 4,
+        });</script></div></div></div><!--!--><div class="column column-right is-4-tablet is-4-desktop is-4-widescreen  order-3 is-sticky"><div class="card widget" id="toc" data-type="toc"><div class="card-content"><div class="menu"><h3 class="menu-label">目录</h3><ul class="menu-list"><li><a class="is-flex is-mobile" href="#排版"><span class="mr-2">1</span><span>排版</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#数字序号"><span class="mr-2">1.1</span><span>数字序号</span></a></li><li><a class="is-flex is-mobile" href="#多行公式"><span class="mr-2">1.2</span><span>多行公式</span></a></li><li><a class="is-flex is-mobile" href="#带大括号的多行公式"><span class="mr-2">1.3</span><span>带大括号的多行公式</span></a></li><li><a class="is-flex is-mobile" href="#插入图像"><span class="mr-2">1.4</span><span>插入图像</span></a></li><li><a class="is-flex is-mobile" href="#插入表格"><span class="mr-2">1.5</span><span>插入表格</span></a></li></ul></li><li><a class="is-flex is-mobile" href="#公式"><span class="mr-2">2</span><span>公式</span></a><ul class="menu-list"><li><a class="is-flex is-mobile" href="#常用文本-数学通用符号"><span class="mr-2">2.1</span><span>常用文本/数学通用符号</span></a></li><li><a class="is-flex is-mobile" href="#常用希腊字母"><span class="mr-2">2.2</span><span>常用希腊字母</span></a></li><li><a class="is-flex is-mobile" href="#二元关系符"><span class="mr-2">2.3</span><span>二元关系符</span></a></li><li><a class="is-flex is-mobile" href="#二元运算符"><span class="mr-2">2.4</span><span>二元运算符</span></a></li><li><a class="is-flex is-mobile" href="#巨算符"><span class="mr-2">2.5</span><span>巨算符</span></a></li><li><a class="is-flex is-mobile" href="#数学重音符号"><span class="mr-2">2.6</span><span>数学重音符号</span></a></li><li><a class="is-flex is-mobile" href="#其他符号"><span class="mr-2">2.7</span><span>其他符号</span></a></li></ul></li></ul></div></div><style>.menu-list > li > a.is-active + .menu-list { display: block; }.menu-list > li > a + .menu-list { display: none; }</style><script src="/js/toc.js" defer></script></div></div></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="https://fastly.jsdelivr.net/gh/jankiny/public-bucket@blog/img/logo-c.png" alt="Janki&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2024 Janki</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">共<span id="busuanzi_value_site_uv">0</span>个访客</span></p><p class="is-size-7">© 2024</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/jankiny/hexo-theme-solon"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script data-pjax src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script data-pjax src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><script type="text/javascript" id="MathJax-script" async>MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      },
+      chtml: {
+        matchFontHeight: false
+      }
+    };</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js"></script><!--!--><!--!--><!--!--><script data-pjax src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
